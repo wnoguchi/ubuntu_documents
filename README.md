@@ -46,7 +46,7 @@ iface eth0 inet static
 して
 
 ```
-sudo /etc/init.d/networking restart
+sudo initctl restart networking
 ```
 
 上のやつ、Ubuntu13.04 Desktopでかましたら内部エラーとかいわれちゃう。なんで。。。
