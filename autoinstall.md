@@ -363,7 +363,7 @@ d-i localechooser/supported-locales en_US.UTF-8d-i console-setup/ask_detect bool
 d-i console-setup/layoutcode string us
 d-i console-setup/charmap select UTF-8
 d-i keyboard-configuration/layoutcode string us
-d-i netcfg/choose_interface select eth1 
+d-i netcfg/choose_interface select eth0 
 d-i netcfg/disable_dhcp boolean true 
 d-i netcfg/get_nameservers string 8.8.8.8 
 d-i netcfg/get_ipaddress string 192.168.1.50 
@@ -373,7 +373,10 @@ d-i netcfg/confirm_static boolean true
 d-i netcfg/get_hostname string openstack 
 d-i netcfg/get_domain string sv.pg1x.com 
 d-i netcfg/wireless_wep string 
-d-i mirror/http/mirror select CC.archive.ubuntu.com
+d-i mirror/country string manual
+d-i mirror/http/hostname string archive.ubuntu.com
+d-i mirror/http/directory string /ubuntu
+d-i mirror/http/proxy string
 d-i clock-setup/utc boolean false 
 d-i time/zone string Japan 
 d-i clock-setup/ntp boolean false 
