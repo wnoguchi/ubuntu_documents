@@ -347,10 +347,12 @@ default install
 label install
   menu label ^Install Ubuntu Server
   kernel ubuntu-installer/amd64/linux
-  append  auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false url=tftp://192.168.1.10/preseed.cfg vga=normal initrd=ubuntu-installer/amd64/initrd.gz interface=eth1 quiet --
+  append auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth1 hostname=deb01 domain=localdomain.local url=http://192.168.1.10/preseed.cfg initrd=ubuntu-installer/amd64/initrd.gz vga=normal quiet --
 ```
 
 #### preseed.cfg
+
+うごかない、うごかない・・・。
 
 ```
 # /var/lib/tftpboot/preseed.cfg
@@ -423,3 +425,6 @@ d-i finish-install/reboot_in_progress note
 - [PreseedによるUbuntu ServerのインストールCD作成手順(PDF)](http://h50146.www5.hp.com/products/software/oe/linux/mainstream/support/lcc/pdf/edlin_20110804.pdf)
 - [Appendix B. Automating the installation using preseeding](https://help.ubuntu.com/12.04/installation-guide/amd64/appendix-preseed.html)
 - [Contents of the preconfiguration file (for precise)](https://help.ubuntu.com/lts/installation-guide/i386/preseed-contents.html)
+- [B.2. preseed の利用](http://www.debian.org/releases/stable/s390x/apbs02.html.ja)
+- [Advanced options](https://help.ubuntu.com/lts/installation-guide/i386/preseed-advanced.html)
+- [preseedを使ってDebian GNU/Linux 5.0.4(netinst)のインストール自動化を行う手順 - 富士山は世界遺産](http://d.hatena.ne.jp/fujisan3776/20100630/1277861431)
