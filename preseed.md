@@ -437,3 +437,6 @@ d-i finish-install/reboot_in_progress note
 - [B.2. preseed の利用](http://www.debian.org/releases/stable/s390x/apbs02.html.ja)
 - [Advanced options](https://help.ubuntu.com/lts/installation-guide/i386/preseed-advanced.html)
 - [preseedを使ってDebian GNU/Linux 5.0.4(netinst)のインストール自動化を行う手順 - 富士山は世界遺産](http://d.hatena.ne.jp/fujisan3776/20100630/1277861431)
+- [Contents of the preconfiguration file (for precise)](https://help.ubuntu.com/lts/installation-guide/i386/preseed-contents.html#preseed-bootloader)
+- [GPT対応のpreseedの書き方 — ペンギンと愉快な機械の日々](http://d.palmtb.net/2012/12/14/writing_preseed_for_gpt.html)
+- [Notes on using expert_recipe in Debian/Ubuntu Preseed Files | Semi-Empirical Shenanigans](http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/)
