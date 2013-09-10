@@ -427,6 +427,21 @@ d-i grub-installer/bootdev string (hd0,0)
 d-i finish-install/reboot_in_progress note
 ```
 
+## デバッグに関して
+
+*僕はここではpartmanの設定の仕方をマスターしたいので調べました。*
+
+カーネルパラメータに `DEBCONF_DEBUG=5` を指定する。  
+出力されるログは2つ？  
+2つある。どっちが正しいのかわからない。
+
+1. `/var/log/installer/syslog`  
+死ぬほど長い。なにこれ。。。
+1. `/var/log/syslog`  
+許せるレベル。
+
+なんか、 `/var/log/syslog` は違う気がするんだよなあ。。。
+
 ## 参考サイト
 
 - [Ubuntu Serverの全自動インストール環境作成 - kinneko@転職先募集中の日記](http://d.hatena.ne.jp/kinneko/20130203/p1)

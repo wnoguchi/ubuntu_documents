@@ -1,0 +1,881 @@
+Sep 10 00:03:10 localhost kernel: imklog 5.8.6, log source = /proc/kmsg started.
+Sep 10 00:03:10 localhost rsyslogd: [origin software="rsyslogd" swVersion="5.8.6" x-pid="724" x-info="http://www.rsyslog.com"] start
+Sep 10 00:03:10 localhost rsyslogd: rsyslogd's groupid changed to 103
+Sep 10 00:03:10 localhost rsyslogd: rsyslogd's userid changed to 101
+Sep 10 00:03:10 localhost rsyslogd-2039: Could not open output pipe '/dev/xconsole' [try http://www.rsyslog.com/e/2039 ]
+Sep 10 00:03:10 localhost kernel: [    0.000000] Initializing cgroup subsys cpuset
+Sep 10 00:03:10 localhost kernel: [    0.000000] Initializing cgroup subsys cpu
+Sep 10 00:03:10 localhost kernel: [    0.000000] Linux version 3.2.0-53-generic (buildd@allspice) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #81-Ubuntu SMP Thu Aug 22 21:01:03 UTC 2013 (Ubuntu 3.2.0-53.81-generic 3.2.50)
+Sep 10 00:03:10 localhost kernel: [    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.2.0-53-generic root=UUID=b8f07109-f4de-4c53-b4a2-971166e43063 ro quiet splash vt.handoff=7
+Sep 10 00:03:10 localhost kernel: [    0.000000] KERNEL supported cpus:
+Sep 10 00:03:10 localhost kernel: [    0.000000]   Intel GenuineIntel
+Sep 10 00:03:10 localhost kernel: [    0.000000]   AMD AuthenticAMD
+Sep 10 00:03:10 localhost kernel: [    0.000000]   Centaur CentaurHauls
+Sep 10 00:03:10 localhost kernel: [    0.000000] BIOS-provided physical RAM map:
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 0000000000000000 - 000000000009c800 (usable)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 000000000009c800 - 00000000000a0000 (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000000e0000 - 0000000000100000 (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 0000000000100000 - 00000000dd65b000 (usable)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000dd65b000 - 00000000dd70d000 (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000dd70d000 - 00000000dd825000 (ACPI NVS)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000dd825000 - 00000000dede5000 (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000dede5000 - 00000000dede6000 (usable)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000dede6000 - 00000000dee29000 (ACPI NVS)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000dee29000 - 00000000df800000 (usable)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000f0000000 - 00000000f8000000 (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000fec00000 - 00000000fec01000 (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000fed00000 - 00000000fed04000 (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000fed1c000 - 00000000fed20000 (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000fee00000 - 00000000fee01000 (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 00000000ff000000 - 0000000100000000 (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000]  BIOS-e820: 0000000100000000 - 00000004a0000000 (usable)
+Sep 10 00:03:10 localhost kernel: [    0.000000] NX (Execute Disable) protection: active
+Sep 10 00:03:10 localhost kernel: [    0.000000] SMBIOS 2.7 present.
+Sep 10 00:03:10 localhost kernel: [    0.000000] DMI: FUJITSU PRIMERGY RX100 S7p/D3034-B1, BIOS V4.6.5.3 R1.20.0 for D3034-B1x 10/29/2012
+Sep 10 00:03:10 localhost kernel: [    0.000000] e820 update range: 0000000000000000 - 0000000000010000 (usable) ==> (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000] e820 remove range: 00000000000a0000 - 0000000000100000 (usable)
+Sep 10 00:03:10 localhost kernel: [    0.000000] No AGP bridge found
+Sep 10 00:03:10 localhost kernel: [    0.000000] last_pfn = 0x4a0000 max_arch_pfn = 0x400000000
+Sep 10 00:03:10 localhost kernel: [    0.000000] MTRR default type: uncachable
+Sep 10 00:03:10 localhost kernel: [    0.000000] MTRR fixed ranges enabled:
+Sep 10 00:03:10 localhost kernel: [    0.000000]   00000-9FFFF write-back
+Sep 10 00:03:10 localhost kernel: [    0.000000]   A0000-BFFFF uncachable
+Sep 10 00:03:10 localhost kernel: [    0.000000]   C0000-CBFFF write-protect
+Sep 10 00:03:10 localhost kernel: [    0.000000]   CC000-E7FFF uncachable
+Sep 10 00:03:10 localhost kernel: [    0.000000]   E8000-FFFFF write-protect
+Sep 10 00:03:10 localhost kernel: [    0.000000] MTRR variable ranges enabled:
+Sep 10 00:03:10 localhost kernel: [    0.000000]   0 base 000000000 mask C00000000 write-back
+Sep 10 00:03:10 localhost kernel: [    0.000000]   1 base 400000000 mask F80000000 write-back
+Sep 10 00:03:10 localhost kernel: [    0.000000]   2 base 480000000 mask FE0000000 write-back
+Sep 10 00:03:10 localhost kernel: [    0.000000]   3 base 0E0000000 mask FE0000000 uncachable
+Sep 10 00:03:10 localhost kernel: [    0.000000]   4 disabled
+Sep 10 00:03:10 localhost kernel: [    0.000000]   5 disabled
+Sep 10 00:03:10 localhost kernel: [    0.000000]   6 disabled
+Sep 10 00:03:10 localhost kernel: [    0.000000]   7 disabled
+Sep 10 00:03:10 localhost kernel: [    0.000000]   8 disabled
+Sep 10 00:03:10 localhost kernel: [    0.000000]   9 disabled
+Sep 10 00:03:10 localhost kernel: [    0.000000] x86 PAT enabled: cpu 0, old 0x7040600070406, new 0x7010600070106
+Sep 10 00:03:10 localhost kernel: [    0.000000] original variable MTRRs
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 0, base: 0GB, range: 16GB, type WB
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 1, base: 16GB, range: 2GB, type WB
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 2, base: 18GB, range: 512MB, type WB
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 3, base: 3584MB, range: 512MB, type UC
+Sep 10 00:03:10 localhost kernel: [    0.000000] total RAM covered: 18432M
+Sep 10 00:03:10 localhost kernel: [    0.000000] Found optimal setting for mtrr clean up
+Sep 10 00:03:10 localhost kernel: [    0.000000]  gran_size: 64K   chunk_size: 64K   num_reg: 7  	lose cover RAM: 0G
+Sep 10 00:03:10 localhost kernel: [    0.000000] New variable MTRRs
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 0, base: 0GB, range: 2GB, type WB
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 1, base: 2GB, range: 1GB, type WB
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 2, base: 3GB, range: 512MB, type WB
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 3, base: 4GB, range: 4GB, type WB
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 4, base: 8GB, range: 8GB, type WB
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 5, base: 16GB, range: 2GB, type WB
+Sep 10 00:03:10 localhost kernel: [    0.000000] reg 6, base: 18GB, range: 512MB, type WB
+Sep 10 00:03:10 localhost kernel: [    0.000000] e820 update range: 00000000e0000000 - 0000000100000000 (usable) ==> (reserved)
+Sep 10 00:03:10 localhost kernel: [    0.000000] last_pfn = 0xdf800 max_arch_pfn = 0x400000000
+Sep 10 00:03:10 localhost kernel: [    0.000000] found SMP MP-table at [ffff8800000fdcf0] fdcf0
+Sep 10 00:03:10 localhost kernel: [    0.000000] initial memory mapped : 0 - 20000000
+Sep 10 00:03:10 localhost kernel: [    0.000000] Base memory trampoline at [ffff880000097000] 97000 size 20480
+Sep 10 00:03:10 localhost kernel: [    0.000000] init_memory_mapping: 0000000000000000-00000000df800000
+Sep 10 00:03:10 localhost kernel: [    0.000000]  0000000000 - 00df800000 page 2M
+Sep 10 00:03:10 localhost kernel: [    0.000000] kernel direct mapping tables up to df800000 @ 1fffb000-20000000
+Sep 10 00:03:10 localhost kernel: [    0.000000] init_memory_mapping: 0000000100000000-00000004a0000000
+Sep 10 00:03:10 localhost kernel: [    0.000000]  0100000000 - 04a0000000 page 2M
+Sep 10 00:03:10 localhost kernel: [    0.000000] kernel direct mapping tables up to 4a0000000 @ df7f0000-df800000
+Sep 10 00:03:10 localhost kernel: [    0.000000] RAMDISK: 362ec000 - 3716e000
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: RSDP 00000000000f0490 00024 (v02 ALASKA)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: XSDT 00000000dd814088 00094 (v01 ALASKA    A M I 01072009 AMI  00010013)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: FACP 00000000dd81fb80 0010C (v05 ALASKA    A M I 01072009 AMI  00010013)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI Warning: FADT (revision 5) is longer than ACPI 2.0 version, truncating length 268 to 244 (20110623/tbfadt-288)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: DSDT 00000000dd8141b8 0B9C3 (v02 ALASKA    A M I 00000009 INTL 20091112)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: FACS 00000000dd823080 00040
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: APIC 00000000dd81fc90 00072 (v03 ALASKA    A M I 01072009 AMI  00010013)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: FPDT 00000000dd81fd08 00044 (v01 ALASKA    A M I 01072009 AMI  00010013)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: MCFG 00000000dd81fd50 0003C (v01 ALASKA    A M I 01072009 MSFT 00000097)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: HPET 00000000dd81fd90 00038 (v01 ALASKA    A M I 01072009 AMI. 00000005)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: SSDT 00000000dd81fdc8 0036D (v01 SataRe SataTabl 00001000 INTL 20091112)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: SPMI 00000000dd820138 00040 (v05 A M I   OEMSPMI 00000000 AMI. 00000000)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: SSDT 00000000dd820178 009A4 (v01  PmRef  Cpu0Ist 00003000 INTL 20051117)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: SSDT 00000000dd820b20 00A88 (v01  PmRef    CpuPm 00003000 INTL 20051117)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: DMAR 00000000dd8215a8 00078 (v01 INTEL      SNB  00000001 INTL 00000001)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: EINJ 00000000dd821620 00130 (v01    AMI AMI EINJ 00000000      00000000)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: ERST 00000000dd821750 00210 (v01  AMIER AMI ERST 00000000      00000000)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: HEST 00000000dd821960 000A8 (v01    AMI AMI HEST 00000000      00000000)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: BERT 00000000dd821a08 00030 (v01    AMI AMI BERT 00000000      00000000)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: Local APIC address 0xfee00000
+Sep 10 00:03:10 localhost kernel: [    0.000000] No NUMA configuration found
+Sep 10 00:03:10 localhost kernel: [    0.000000] Faking a node at 0000000000000000-00000004a0000000
+Sep 10 00:03:10 localhost kernel: [    0.000000] Initmem setup node 0 0000000000000000-00000004a0000000
+Sep 10 00:03:10 localhost kernel: [    0.000000]   NODE_DATA [000000049fffb000 - 000000049fffffff]
+Sep 10 00:03:10 localhost kernel: [    0.000000]  [ffffea0000000000-ffffea00127fffff] PMD -> [ffff88048d600000-ffff88049f5fffff] on node 0
+Sep 10 00:03:10 localhost kernel: [    0.000000] Zone PFN ranges:
+Sep 10 00:03:10 localhost kernel: [    0.000000]   DMA      0x00000010 -> 0x00001000
+Sep 10 00:03:10 localhost kernel: [    0.000000]   DMA32    0x00001000 -> 0x00100000
+Sep 10 00:03:10 localhost kernel: [    0.000000]   Normal   0x00100000 -> 0x004a0000
+Sep 10 00:03:10 localhost kernel: [    0.000000] Movable zone start PFN for each node
+Sep 10 00:03:10 localhost kernel: [    0.000000] early_node_map[5] active PFN ranges
+Sep 10 00:03:10 localhost kernel: [    0.000000]     0: 0x00000010 -> 0x0000009c
+Sep 10 00:03:10 localhost kernel: [    0.000000]     0: 0x00000100 -> 0x000dd65b
+Sep 10 00:03:10 localhost kernel: [    0.000000]     0: 0x000dede5 -> 0x000dede6
+Sep 10 00:03:10 localhost kernel: [    0.000000]     0: 0x000dee29 -> 0x000df800
+Sep 10 00:03:10 localhost kernel: [    0.000000]     0: 0x00100000 -> 0x004a0000
+Sep 10 00:03:10 localhost kernel: [    0.000000] On node 0 totalpages: 4710335
+Sep 10 00:03:10 localhost kernel: [    0.000000]   DMA zone: 64 pages used for memmap
+Sep 10 00:03:10 localhost kernel: [    0.000000]   DMA zone: 5 pages reserved
+Sep 10 00:03:10 localhost kernel: [    0.000000]   DMA zone: 3911 pages, LIFO batch:0
+Sep 10 00:03:10 localhost kernel: [    0.000000]   DMA32 zone: 16320 pages used for memmap
+Sep 10 00:03:10 localhost kernel: [    0.000000]   DMA32 zone: 888947 pages, LIFO batch:31
+Sep 10 00:03:10 localhost kernel: [    0.000000]   Normal zone: 59392 pages used for memmap
+Sep 10 00:03:10 localhost kernel: [    0.000000]   Normal zone: 3741696 pages, LIFO batch:31
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: PM-Timer IO Port: 0x408
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: Local APIC address 0xfee00000
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: LAPIC (acpi_id[0x01] lapic_id[0x00] enabled)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: LAPIC (acpi_id[0x02] lapic_id[0x02] enabled)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: LAPIC (acpi_id[0x03] lapic_id[0x04] enabled)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: LAPIC (acpi_id[0x04] lapic_id[0x06] enabled)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: LAPIC_NMI (acpi_id[0xff] high edge lint[0x1])
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: IOAPIC (id[0x02] address[0xfec00000] gsi_base[0])
+Sep 10 00:03:10 localhost kernel: [    0.000000] IOAPIC[0]: apic_id 2, version 32, address 0xfec00000, GSI 0-23
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: IRQ0 used by override.
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: IRQ2 used by override.
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: IRQ9 used by override.
+Sep 10 00:03:10 localhost kernel: [    0.000000] Using ACPI (MADT) for SMP configuration information
+Sep 10 00:03:10 localhost kernel: [    0.000000] ACPI: HPET id: 0x8086a701 base: 0xfed00000
+Sep 10 00:03:10 localhost kernel: [    0.000000] SMP: Allowing 4 CPUs, 0 hotplug CPUs
+Sep 10 00:03:10 localhost kernel: [    0.000000] nr_irqs_gsi: 40
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 000000000009c000 - 000000000009d000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 000000000009d000 - 00000000000a0000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000000a0000 - 00000000000e0000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000000e0000 - 0000000000100000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000dd65b000 - 00000000dd70d000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000dd70d000 - 00000000dd825000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000dd825000 - 00000000dede5000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000dede6000 - 00000000dee29000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000df800000 - 00000000f0000000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000f0000000 - 00000000f8000000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000f8000000 - 00000000fec00000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000fec00000 - 00000000fec01000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000fec01000 - 00000000fed00000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000fed00000 - 00000000fed04000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000fed04000 - 00000000fed1c000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000fed1c000 - 00000000fed20000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000fed20000 - 00000000fee00000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000fee00000 - 00000000fee01000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000fee01000 - 00000000ff000000
+Sep 10 00:03:10 localhost kernel: [    0.000000] PM: Registered nosave memory: 00000000ff000000 - 0000000100000000
+Sep 10 00:03:10 localhost kernel: [    0.000000] Allocating PCI resources starting at df800000 (gap: df800000:10800000)
+Sep 10 00:03:10 localhost kernel: [    0.000000] Booting paravirtualized kernel on bare hardware
+Sep 10 00:03:10 localhost kernel: [    0.000000] setup_percpu: NR_CPUS:256 nr_cpumask_bits:256 nr_cpu_ids:4 nr_node_ids:1
+Sep 10 00:03:10 localhost kernel: [    0.000000] PERCPU: Embedded 28 pages/cpu @ffff88049fc00000 s83136 r8192 d23360 u524288
+Sep 10 00:03:10 localhost kernel: [    0.000000] pcpu-alloc: s83136 r8192 d23360 u524288 alloc=1*2097152
+Sep 10 00:03:10 localhost kernel: [    0.000000] pcpu-alloc: [0] 0 1 2 3 
+Sep 10 00:03:10 localhost kernel: [    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 4634554
+Sep 10 00:03:10 localhost kernel: [    0.000000] Policy zone: Normal
+Sep 10 00:03:10 localhost kernel: [    0.000000] Kernel command line: BOOT_IMAGE=/vmlinuz-3.2.0-53-generic root=UUID=b8f07109-f4de-4c53-b4a2-971166e43063 ro quiet splash vt.handoff=7
+Sep 10 00:03:10 localhost kernel: [    0.000000] PID hash table entries: 4096 (order: 3, 32768 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.000000] xsave/xrstor: enabled xstate_bv 0x7, cntxt size 0x340
+Sep 10 00:03:10 localhost kernel: [    0.000000] Checking aperture...
+Sep 10 00:03:10 localhost kernel: [    0.000000] No AGP bridge found
+Sep 10 00:03:10 localhost kernel: [    0.000000] Calgary: detecting Calgary via BIOS EBDA area
+Sep 10 00:03:10 localhost kernel: [    0.000000] Calgary: Unable to locate Rio Grande table in EBDA - bailing!
+Sep 10 00:03:10 localhost kernel: [    0.000000] Memory: 18449168k/19398656k available (6584k kernel code, 557316k absent, 392172k reserved, 6622k data, 924k init)
+Sep 10 00:03:10 localhost kernel: [    0.000000] SLUB: Genslabs=15, HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+Sep 10 00:03:10 localhost kernel: [    0.000000] Hierarchical RCU implementation.
+Sep 10 00:03:10 localhost kernel: [    0.000000] 	RCU dyntick-idle grace-period acceleration is enabled.
+Sep 10 00:03:10 localhost kernel: [    0.000000] NR_IRQS:16640 nr_irqs:712 16
+Sep 10 00:03:10 localhost kernel: [    0.000000] Extended CMOS year: 2000
+Sep 10 00:03:10 localhost kernel: [    0.000000] vt handoff: transparent VT on vt#7
+Sep 10 00:03:10 localhost kernel: [    0.000000] Console: colour dummy device 80x25
+Sep 10 00:03:10 localhost kernel: [    0.000000] console [tty0] enabled
+Sep 10 00:03:10 localhost kernel: [    0.000000] allocated 150994944 bytes of page_cgroup
+Sep 10 00:03:10 localhost kernel: [    0.000000] please try 'cgroup_disable=memory' option if you don't want memory cgroups
+Sep 10 00:03:10 localhost kernel: [    0.000000] hpet clockevent registered
+Sep 10 00:03:10 localhost kernel: [    0.000000] Fast TSC calibration using PIT
+Sep 10 00:03:10 localhost kernel: [    0.004000] Detected 3092.913 MHz processor.
+Sep 10 00:03:10 localhost kernel: [    0.000002] Calibrating delay loop (skipped), value calculated using timer frequency.. 6185.82 BogoMIPS (lpj=12371652)
+Sep 10 00:03:10 localhost kernel: [    0.000005] pid_max: default: 32768 minimum: 301
+Sep 10 00:03:10 localhost kernel: [    0.000020] Security Framework initialized
+Sep 10 00:03:10 localhost kernel: [    0.000031] AppArmor: AppArmor initialized
+Sep 10 00:03:10 localhost kernel: [    0.000031] Yama: becoming mindful.
+Sep 10 00:03:10 localhost kernel: [    0.001517] Dentry cache hash table entries: 4194304 (order: 13, 33554432 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.007814] Inode-cache hash table entries: 2097152 (order: 12, 16777216 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.010612] Mount-cache hash table entries: 256
+Sep 10 00:03:10 localhost kernel: [    0.010692] Initializing cgroup subsys cpuacct
+Sep 10 00:03:10 localhost kernel: [    0.010695] Initializing cgroup subsys memory
+Sep 10 00:03:10 localhost kernel: [    0.010701] Initializing cgroup subsys devices
+Sep 10 00:03:10 localhost kernel: [    0.010702] Initializing cgroup subsys freezer
+Sep 10 00:03:10 localhost kernel: [    0.010703] Initializing cgroup subsys blkio
+Sep 10 00:03:10 localhost kernel: [    0.010707] Initializing cgroup subsys perf_event
+Sep 10 00:03:10 localhost kernel: [    0.010727] CPU: Physical Processor ID: 0
+Sep 10 00:03:10 localhost kernel: [    0.010728] CPU: Processor Core ID: 0
+Sep 10 00:03:10 localhost kernel: [    0.010732] ENERGY_PERF_BIAS: Set to 'normal', was 'performance'
+Sep 10 00:03:10 localhost kernel: [    0.010733] ENERGY_PERF_BIAS: View and update with x86_energy_perf_policy(8)
+Sep 10 00:03:10 localhost kernel: [    0.011019] mce: CPU supports 9 MCE banks
+Sep 10 00:03:10 localhost kernel: [    0.011029] CPU0: Thermal monitoring enabled (TM1)
+Sep 10 00:03:10 localhost kernel: [    0.011035] using mwait in idle threads.
+Sep 10 00:03:10 localhost kernel: [    0.012661] ACPI: Core revision 20110623
+Sep 10 00:03:10 localhost kernel: [    0.016947] ftrace: allocating 26592 entries in 105 pages
+Sep 10 00:03:10 localhost kernel: [    0.023730] DMAR: Host address width 36
+Sep 10 00:03:10 localhost kernel: [    0.023732] DMAR: DRHD base: 0x000000fed90000 flags: 0x1
+Sep 10 00:03:10 localhost kernel: [    0.023738] IOMMU 0: reg_base_addr fed90000 ver 1:0 cap c9008020660262 ecap f010da
+Sep 10 00:03:10 localhost kernel: [    0.023739] DMAR: RMRR base: 0x000000dd6a4000 end: 0x000000dd6b0fff
+Sep 10 00:03:10 localhost kernel: [    0.023809] IOAPIC id 2 under DRHD base  0xfed90000 IOMMU 0
+Sep 10 00:03:10 localhost kernel: [    0.023810] HPET id 0 under DRHD base 0xfed90000
+Sep 10 00:03:10 localhost kernel: [    0.023871] Enabled IRQ remapping in x2apic mode
+Sep 10 00:03:10 localhost kernel: [    0.023872] Enabling x2apic
+Sep 10 00:03:10 localhost kernel: [    0.023873] Enabled x2apic
+Sep 10 00:03:10 localhost kernel: [    0.023878] Switched APIC routing to cluster x2apic.
+Sep 10 00:03:10 localhost kernel: [    0.024304] ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+Sep 10 00:03:10 localhost kernel: [    0.063978] CPU0: Intel(R) Xeon(R) CPU E3-1220 V2 @ 3.10GHz stepping 09
+Sep 10 00:03:10 localhost kernel: [    0.168973] Performance Events: PEBS fmt1+, generic architected perfmon, Intel PMU driver.
+Sep 10 00:03:10 localhost kernel: [    0.168978] ... version:                3
+Sep 10 00:03:10 localhost kernel: [    0.168979] ... bit width:              48
+Sep 10 00:03:10 localhost kernel: [    0.168980] ... generic registers:      8
+Sep 10 00:03:10 localhost kernel: [    0.168981] ... value mask:             0000ffffffffffff
+Sep 10 00:03:10 localhost kernel: [    0.168982] ... max period:             000000007fffffff
+Sep 10 00:03:10 localhost kernel: [    0.168983] ... fixed-purpose events:   3
+Sep 10 00:03:10 localhost kernel: [    0.168984] ... event mask:             00000007000000ff
+Sep 10 00:03:10 localhost kernel: [    0.169076] NMI watchdog enabled, takes one hw-pmu counter.
+Sep 10 00:03:10 localhost kernel: [    0.169133] Booting Node   0, Processors  #1
+Sep 10 00:03:10 localhost kernel: [    0.169135] smpboot cpu 1: start_ip = 97000
+Sep 10 00:03:10 localhost kernel: [    0.277344] NMI watchdog enabled, takes one hw-pmu counter.
+Sep 10 00:03:10 localhost kernel: [    0.277411]  #2
+Sep 10 00:03:10 localhost kernel: [    0.277412] smpboot cpu 2: start_ip = 97000
+Sep 10 00:03:10 localhost kernel: [    0.385317] NMI watchdog enabled, takes one hw-pmu counter.
+Sep 10 00:03:10 localhost kernel: [    0.385380]  #3 Ok.
+Sep 10 00:03:10 localhost kernel: [    0.385381] smpboot cpu 3: start_ip = 97000
+Sep 10 00:03:10 localhost kernel: [    0.493291] NMI watchdog enabled, takes one hw-pmu counter.
+Sep 10 00:03:10 localhost kernel: [    0.493315] Brought up 4 CPUs
+Sep 10 00:03:10 localhost kernel: [    0.493317] Total of 4 processors activated (24742.81 BogoMIPS).
+Sep 10 00:03:10 localhost kernel: [    0.496796] devtmpfs: initialized
+Sep 10 00:03:10 localhost kernel: [    0.497648] EVM: security.selinux
+Sep 10 00:03:10 localhost kernel: [    0.497650] EVM: security.SMACK64
+Sep 10 00:03:10 localhost kernel: [    0.497650] EVM: security.capability
+Sep 10 00:03:10 localhost kernel: [    0.497667] PM: Registering ACPI NVS region at dd70d000 (1146880 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.497680] PM: Registering ACPI NVS region at dede6000 (274432 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.498254] print_constraints: dummy: 
+Sep 10 00:03:10 localhost kernel: [    0.498281] RTC time: 15:03:03, date: 09/09/13
+Sep 10 00:03:10 localhost kernel: [    0.498302] NET: Registered protocol family 16
+Sep 10 00:03:10 localhost kernel: [    0.498368] Trying to unpack rootfs image as initramfs...
+Sep 10 00:03:10 localhost kernel: [    0.498376] ACPI FADT declares the system doesn't support PCIe ASPM, so disable it
+Sep 10 00:03:10 localhost kernel: [    0.498378] ACPI: bus type pci registered
+Sep 10 00:03:10 localhost kernel: [    0.498420] PCI: MMCONFIG for domain 0000 [bus 00-7f] at [mem 0xf0000000-0xf7ffffff] (base 0xf0000000)
+Sep 10 00:03:10 localhost kernel: [    0.498422] PCI: MMCONFIG at [mem 0xf0000000-0xf7ffffff] reserved in E820
+Sep 10 00:03:10 localhost kernel: [    0.515320] PCI: Using configuration type 1 for base access
+Sep 10 00:03:10 localhost kernel: [    0.516006] bio: create slab <bio-0> at 0
+Sep 10 00:03:10 localhost kernel: [    0.516057] ACPI: Added _OSI(Module Device)
+Sep 10 00:03:10 localhost kernel: [    0.516058] ACPI: Added _OSI(Processor Device)
+Sep 10 00:03:10 localhost kernel: [    0.516060] ACPI: Added _OSI(3.0 _SCP Extensions)
+Sep 10 00:03:10 localhost kernel: [    0.516061] ACPI: Added _OSI(Processor Aggregator Device)
+Sep 10 00:03:10 localhost kernel: [    0.517141] ACPI: EC: Look up EC in DSDT
+Sep 10 00:03:10 localhost kernel: [    0.518279] ACPI: Executed 1 blocks of module-level executable AML code
+Sep 10 00:03:10 localhost kernel: [    0.555041] \_SB_:_OSC invalid UUID
+Sep 10 00:03:10 localhost kernel: [    0.555043] _OSC request data:1 17 
+Sep 10 00:03:10 localhost kernel: [    0.555248] ACPI: SSDT 00000000dd69e018 0083B (v01  PmRef  Cpu0Cst 00003001 INTL 20051117)
+Sep 10 00:03:10 localhost kernel: [    0.555516] ACPI: Dynamic OEM Table Load:
+Sep 10 00:03:10 localhost kernel: [    0.555518] ACPI: SSDT           (null) 0083B (v01  PmRef  Cpu0Cst 00003001 INTL 20051117)
+Sep 10 00:03:10 localhost kernel: [    0.581021] ACPI: SSDT 00000000dd69fa98 00303 (v01  PmRef    ApIst 00003000 INTL 20051117)
+Sep 10 00:03:10 localhost kernel: [    0.581306] ACPI: Dynamic OEM Table Load:
+Sep 10 00:03:10 localhost kernel: [    0.581307] ACPI: SSDT           (null) 00303 (v01  PmRef    ApIst 00003000 INTL 20051117)
+Sep 10 00:03:10 localhost kernel: [    0.604922] ACPI: SSDT 00000000dd6bcc18 00119 (v01  PmRef    ApCst 00003000 INTL 20051117)
+Sep 10 00:03:10 localhost kernel: [    0.605186] ACPI: Dynamic OEM Table Load:
+Sep 10 00:03:10 localhost kernel: [    0.605188] ACPI: SSDT           (null) 00119 (v01  PmRef    ApCst 00003000 INTL 20051117)
+Sep 10 00:03:10 localhost kernel: [    0.629223] ACPI: Interpreter enabled
+Sep 10 00:03:10 localhost kernel: [    0.629226] ACPI: (supports S0 S4 S5)
+Sep 10 00:03:10 localhost kernel: [    0.629241] ACPI: Using IOAPIC for interrupt routing
+Sep 10 00:03:10 localhost kernel: [    0.632458] ACPI: Power Resource [FN00] (off)
+Sep 10 00:03:10 localhost kernel: [    0.632510] ACPI: Power Resource [FN01] (off)
+Sep 10 00:03:10 localhost kernel: [    0.632559] ACPI: Power Resource [FN02] (off)
+Sep 10 00:03:10 localhost kernel: [    0.632606] ACPI: Power Resource [FN03] (off)
+Sep 10 00:03:10 localhost kernel: [    0.632655] ACPI: Power Resource [FN04] (off)
+Sep 10 00:03:10 localhost kernel: [    0.632969] ACPI: No dock devices found.
+Sep 10 00:03:10 localhost kernel: [    0.632992] HEST: Table parsing has been initialized.
+Sep 10 00:03:10 localhost kernel: [    0.632994] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+Sep 10 00:03:10 localhost kernel: [    0.633203] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-7e])
+Sep 10 00:03:10 localhost kernel: [    0.633493] pci_root PNP0A08:00: host bridge window [io  0x0000-0x0cf7]
+Sep 10 00:03:10 localhost kernel: [    0.633495] pci_root PNP0A08:00: host bridge window [io  0x0d00-0xffff]
+Sep 10 00:03:10 localhost kernel: [    0.633496] pci_root PNP0A08:00: host bridge window [mem 0x000a0000-0x000bffff]
+Sep 10 00:03:10 localhost kernel: [    0.633498] pci_root PNP0A08:00: host bridge window [mem 0x000cc000-0x000cffff]
+Sep 10 00:03:10 localhost kernel: [    0.633499] pci_root PNP0A08:00: host bridge window [mem 0x000d0000-0x000d3fff]
+Sep 10 00:03:10 localhost kernel: [    0.633501] pci_root PNP0A08:00: host bridge window [mem 0x000d4000-0x000d7fff]
+Sep 10 00:03:10 localhost kernel: [    0.633502] pci_root PNP0A08:00: host bridge window [mem 0x000d8000-0x000dbfff]
+Sep 10 00:03:10 localhost kernel: [    0.633504] pci_root PNP0A08:00: host bridge window [mem 0x000dc000-0x000dffff]
+Sep 10 00:03:10 localhost kernel: [    0.633505] pci_root PNP0A08:00: host bridge window [mem 0x000e0000-0x000e3fff]
+Sep 10 00:03:10 localhost kernel: [    0.633506] pci_root PNP0A08:00: host bridge window [mem 0x000e4000-0x000e7fff]
+Sep 10 00:03:10 localhost kernel: [    0.633508] pci_root PNP0A08:00: host bridge window [mem 0xe0000000-0xfeafffff]
+Sep 10 00:03:10 localhost kernel: [    0.633517] pci 0000:00:00.0: [8086:0158] type 0 class 0x000600
+Sep 10 00:03:10 localhost kernel: [    0.633574] pci 0000:00:19.0: [8086:1502] type 0 class 0x000200
+Sep 10 00:03:10 localhost kernel: [    0.633592] pci 0000:00:19.0: reg 10: [mem 0xefa00000-0xefa1ffff]
+Sep 10 00:03:10 localhost kernel: [    0.633601] pci 0000:00:19.0: reg 14: [mem 0xefa25000-0xefa25fff]
+Sep 10 00:03:10 localhost kernel: [    0.633609] pci 0000:00:19.0: reg 18: [io  0xf040-0xf05f]
+Sep 10 00:03:10 localhost kernel: [    0.633668] pci 0000:00:19.0: PME# supported from D0 D3hot D3cold
+Sep 10 00:03:10 localhost kernel: [    0.633672] pci 0000:00:19.0: PME# disabled
+Sep 10 00:03:10 localhost kernel: [    0.633695] pci 0000:00:1a.0: [8086:1c2d] type 0 class 0x000c03
+Sep 10 00:03:10 localhost kernel: [    0.633714] pci 0000:00:1a.0: reg 10: [mem 0xefa24000-0xefa243ff]
+Sep 10 00:03:10 localhost kernel: [    0.633800] pci 0000:00:1a.0: PME# supported from D0 D3hot D3cold
+Sep 10 00:03:10 localhost kernel: [    0.633804] pci 0000:00:1a.0: PME# disabled
+Sep 10 00:03:10 localhost kernel: [    0.633826] pci 0000:00:1c.0: [8086:1c10] type 1 class 0x000604
+Sep 10 00:03:10 localhost kernel: [    0.633900] pci 0000:00:1c.0: PME# supported from D0 D3hot D3cold
+Sep 10 00:03:10 localhost kernel: [    0.633904] pci 0000:00:1c.0: PME# disabled
+Sep 10 00:03:10 localhost kernel: [    0.633931] pci 0000:00:1c.6: [8086:1c1c] type 1 class 0x000604
+Sep 10 00:03:10 localhost kernel: [    0.634004] pci 0000:00:1c.6: PME# supported from D0 D3hot D3cold
+Sep 10 00:03:10 localhost kernel: [    0.634008] pci 0000:00:1c.6: PME# disabled
+Sep 10 00:03:10 localhost kernel: [    0.634029] pci 0000:00:1c.7: [8086:1c1e] type 1 class 0x000604
+Sep 10 00:03:10 localhost kernel: [    0.634102] pci 0000:00:1c.7: PME# supported from D0 D3hot D3cold
+Sep 10 00:03:10 localhost kernel: [    0.634105] pci 0000:00:1c.7: PME# disabled
+Sep 10 00:03:10 localhost kernel: [    0.634131] pci 0000:00:1d.0: [8086:1c26] type 0 class 0x000c03
+Sep 10 00:03:10 localhost kernel: [    0.634150] pci 0000:00:1d.0: reg 10: [mem 0xefa23000-0xefa233ff]
+Sep 10 00:03:10 localhost kernel: [    0.634235] pci 0000:00:1d.0: PME# supported from D0 D3hot D3cold
+Sep 10 00:03:10 localhost kernel: [    0.634239] pci 0000:00:1d.0: PME# disabled
+Sep 10 00:03:10 localhost kernel: [    0.634256] pci 0000:00:1e.0: [8086:244e] type 1 class 0x000604
+Sep 10 00:03:10 localhost kernel: [    0.634315] pci 0000:00:1f.0: [8086:1c52] type 0 class 0x000601
+Sep 10 00:03:10 localhost kernel: [    0.634432] pci 0000:00:1f.2: [8086:1c02] type 0 class 0x000106
+Sep 10 00:03:10 localhost kernel: [    0.634449] pci 0000:00:1f.2: reg 10: [io  0xf090-0xf097]
+Sep 10 00:03:10 localhost kernel: [    0.634456] pci 0000:00:1f.2: reg 14: [io  0xf080-0xf083]
+Sep 10 00:03:10 localhost kernel: [    0.634464] pci 0000:00:1f.2: reg 18: [io  0xf070-0xf077]
+Sep 10 00:03:10 localhost kernel: [    0.634471] pci 0000:00:1f.2: reg 1c: [io  0xf060-0xf063]
+Sep 10 00:03:10 localhost kernel: [    0.634479] pci 0000:00:1f.2: reg 20: [io  0xf020-0xf03f]
+Sep 10 00:03:10 localhost kernel: [    0.634485] pci 0000:00:1f.2: reg 24: [mem 0xefa22000-0xefa227ff]
+Sep 10 00:03:10 localhost kernel: [    0.634527] pci 0000:00:1f.2: PME# supported from D3hot
+Sep 10 00:03:10 localhost kernel: [    0.634531] pci 0000:00:1f.2: PME# disabled
+Sep 10 00:03:10 localhost kernel: [    0.634546] pci 0000:00:1f.3: [8086:1c22] type 0 class 0x000c05
+Sep 10 00:03:10 localhost kernel: [    0.634560] pci 0000:00:1f.3: reg 10: [mem 0xefa21000-0xefa210ff 64bit]
+Sep 10 00:03:10 localhost kernel: [    0.634580] pci 0000:00:1f.3: reg 20: [io  0xf000-0xf01f]
+Sep 10 00:03:10 localhost kernel: [    0.634646] pci 0000:00:1c.0: PCI bridge to [bus 01-01]
+Sep 10 00:03:10 localhost kernel: [    0.634733] pci 0000:02:00.0: [8086:10d3] type 0 class 0x000200
+Sep 10 00:03:10 localhost kernel: [    0.634765] pci 0000:02:00.0: reg 10: [mem 0xef900000-0xef91ffff]
+Sep 10 00:03:10 localhost kernel: [    0.634811] pci 0000:02:00.0: reg 18: [io  0xe000-0xe01f]
+Sep 10 00:03:10 localhost kernel: [    0.634834] pci 0000:02:00.0: reg 1c: [mem 0xef920000-0xef923fff]
+Sep 10 00:03:10 localhost kernel: [    0.635027] pci 0000:02:00.0: PME# supported from D0 D3hot D3cold
+Sep 10 00:03:10 localhost kernel: [    0.635035] pci 0000:02:00.0: PME# disabled
+Sep 10 00:03:10 localhost kernel: [    0.640864] pci 0000:00:1c.6: PCI bridge to [bus 02-02]
+Sep 10 00:03:10 localhost kernel: [    0.640868] pci 0000:00:1c.6:   bridge window [io  0xe000-0xefff]
+Sep 10 00:03:10 localhost kernel: [    0.640872] pci 0000:00:1c.6:   bridge window [mem 0xef900000-0xef9fffff]
+Sep 10 00:03:10 localhost kernel: [    0.640945] pci 0000:03:00.0: [102b:0522] type 0 class 0x000300
+Sep 10 00:03:10 localhost kernel: [    0.640973] pci 0000:03:00.0: reg 10: [mem 0xee000000-0xeeffffff]
+Sep 10 00:03:10 localhost kernel: [    0.640992] pci 0000:03:00.0: reg 14: [mem 0xef800000-0xef803fff]
+Sep 10 00:03:10 localhost kernel: [    0.641011] pci 0000:03:00.0: reg 18: [mem 0xef000000-0xef7fffff]
+Sep 10 00:03:10 localhost kernel: [    0.648858] pci 0000:00:1c.7: PCI bridge to [bus 03-03]
+Sep 10 00:03:10 localhost kernel: [    0.648864] pci 0000:00:1c.7:   bridge window [mem 0xee000000-0xef8fffff]
+Sep 10 00:03:10 localhost kernel: [    0.648924] pci 0000:00:1e.0: PCI bridge to [bus 04-04] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648933] pci 0000:00:1e.0:   bridge window [io  0x0000-0x0cf7] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648934] pci 0000:00:1e.0:   bridge window [io  0x0d00-0xffff] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648936] pci 0000:00:1e.0:   bridge window [mem 0x000a0000-0x000bffff] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648937] pci 0000:00:1e.0:   bridge window [mem 0x000cc000-0x000cffff] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648939] pci 0000:00:1e.0:   bridge window [mem 0x000d0000-0x000d3fff] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648940] pci 0000:00:1e.0:   bridge window [mem 0x000d4000-0x000d7fff] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648942] pci 0000:00:1e.0:   bridge window [mem 0x000d8000-0x000dbfff] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648943] pci 0000:00:1e.0:   bridge window [mem 0x000dc000-0x000dffff] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648945] pci 0000:00:1e.0:   bridge window [mem 0x000e0000-0x000e3fff] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648946] pci 0000:00:1e.0:   bridge window [mem 0x000e4000-0x000e7fff] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648948] pci 0000:00:1e.0:   bridge window [mem 0xe0000000-0xfeafffff] (subtractive decode)
+Sep 10 00:03:10 localhost kernel: [    0.648968] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0._PRT]
+Sep 10 00:03:10 localhost kernel: [    0.649044] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.RP01._PRT]
+Sep 10 00:03:10 localhost kernel: [    0.649067] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.RP07._PRT]
+Sep 10 00:03:10 localhost kernel: [    0.649089] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.RP08._PRT]
+Sep 10 00:03:10 localhost kernel: [    0.649170]  pci0000:00: Requesting ACPI _OSC control (0x1d)
+Sep 10 00:03:10 localhost kernel: [    0.649300]  pci0000:00: ACPI _OSC control (0x18) granted
+Sep 10 00:03:10 localhost kernel: [    0.651337] ACPI: PCI Interrupt Link [LNKA] (IRQs 3 4 5 6 10 *11 12 14 15)
+Sep 10 00:03:10 localhost kernel: [    0.651369] ACPI: PCI Interrupt Link [LNKB] (IRQs 3 4 5 6 10 11 12 14 15) *0, disabled.
+Sep 10 00:03:10 localhost kernel: [    0.651399] ACPI: PCI Interrupt Link [LNKC] (IRQs *3 4 5 6 10 11 12 14 15)
+Sep 10 00:03:10 localhost kernel: [    0.651428] ACPI: PCI Interrupt Link [LNKD] (IRQs 3 4 5 6 *10 11 12 14 15)
+Sep 10 00:03:10 localhost kernel: [    0.651459] ACPI: PCI Interrupt Link [LNKE] (IRQs 3 4 *5 6 10 11 12 14 15)
+Sep 10 00:03:10 localhost kernel: [    0.651490] ACPI: PCI Interrupt Link [LNKF] (IRQs 3 4 5 6 10 11 12 14 15) *0, disabled.
+Sep 10 00:03:10 localhost kernel: [    0.651520] ACPI: PCI Interrupt Link [LNKG] (IRQs 3 4 5 6 10 11 12 14 15) *0, disabled.
+Sep 10 00:03:10 localhost kernel: [    0.651550] ACPI: PCI Interrupt Link [LNKH] (IRQs 3 4 5 6 10 *11 12 14 15)
+Sep 10 00:03:10 localhost kernel: [    0.651629] vgaarb: device added: PCI:0000:03:00.0,decodes=io+mem,owns=io+mem,locks=none
+Sep 10 00:03:10 localhost kernel: [    0.651630] vgaarb: loaded
+Sep 10 00:03:10 localhost kernel: [    0.651631] vgaarb: bridge control possible 0000:03:00.0
+Sep 10 00:03:10 localhost kernel: [    0.651690] i2c-core: driver [aat2870] using legacy suspend method
+Sep 10 00:03:10 localhost kernel: [    0.651691] i2c-core: driver [aat2870] using legacy resume method
+Sep 10 00:03:10 localhost kernel: [    0.651732] SCSI subsystem initialized
+Sep 10 00:03:10 localhost kernel: [    0.651768] libata version 3.00 loaded.
+Sep 10 00:03:10 localhost kernel: [    0.651794] usbcore: registered new interface driver usbfs
+Sep 10 00:03:10 localhost kernel: [    0.651800] usbcore: registered new interface driver hub
+Sep 10 00:03:10 localhost kernel: [    0.651813] usbcore: registered new device driver usb
+Sep 10 00:03:10 localhost kernel: [    0.651863] PCI: Using ACPI for IRQ routing
+Sep 10 00:03:10 localhost kernel: [    0.654869] PCI: pci_cache_line_size set to 64 bytes
+Sep 10 00:03:10 localhost kernel: [    0.654927] reserve RAM buffer: 000000000009c800 - 000000000009ffff 
+Sep 10 00:03:10 localhost kernel: [    0.654928] reserve RAM buffer: 00000000dd65b000 - 00000000dfffffff 
+Sep 10 00:03:10 localhost kernel: [    0.654930] reserve RAM buffer: 00000000dede6000 - 00000000dfffffff 
+Sep 10 00:03:10 localhost kernel: [    0.654931] reserve RAM buffer: 00000000df800000 - 00000000dfffffff 
+Sep 10 00:03:10 localhost kernel: [    0.654998] NetLabel: Initializing
+Sep 10 00:03:10 localhost kernel: [    0.654999] NetLabel:  domain hash size = 128
+Sep 10 00:03:10 localhost kernel: [    0.655000] NetLabel:  protocols = UNLABELED CIPSOv4
+Sep 10 00:03:10 localhost kernel: [    0.655007] NetLabel:  unlabeled traffic allowed by default
+Sep 10 00:03:10 localhost kernel: [    0.655041] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0, 0, 0, 0, 0, 0
+Sep 10 00:03:10 localhost kernel: [    0.655045] hpet0: 8 comparators, 64-bit 14.318180 MHz counter
+Sep 10 00:03:10 localhost kernel: [    0.657059] Switching to clocksource hpet
+Sep 10 00:03:10 localhost kernel: [    0.661073] AppArmor: AppArmor Filesystem Enabled
+Sep 10 00:03:10 localhost kernel: [    0.661085] pnp: PnP ACPI init
+Sep 10 00:03:10 localhost kernel: [    0.661093] ACPI: bus type pnp registered
+Sep 10 00:03:10 localhost kernel: [    0.661267] pnp 00:00: [bus 00-7e]
+Sep 10 00:03:10 localhost kernel: [    0.661268] pnp 00:00: [io  0x0000-0x0cf7 window]
+Sep 10 00:03:10 localhost kernel: [    0.661270] pnp 00:00: [io  0x0cf8-0x0cff]
+Sep 10 00:03:10 localhost kernel: [    0.661271] pnp 00:00: [io  0x0d00-0xffff window]
+Sep 10 00:03:10 localhost kernel: [    0.661272] pnp 00:00: [mem 0x000a0000-0x000bffff window]
+Sep 10 00:03:10 localhost kernel: [    0.661274] pnp 00:00: [mem 0x000c0000-0x000c3fff window]
+Sep 10 00:03:10 localhost kernel: [    0.661275] pnp 00:00: [mem 0x000c4000-0x000c7fff window]
+Sep 10 00:03:10 localhost kernel: [    0.661276] pnp 00:00: [mem 0x000c8000-0x000cbfff window]
+Sep 10 00:03:10 localhost kernel: [    0.661277] pnp 00:00: [mem 0x000cc000-0x000cffff window]
+Sep 10 00:03:10 localhost kernel: [    0.661279] pnp 00:00: [mem 0x000d0000-0x000d3fff window]
+Sep 10 00:03:10 localhost kernel: [    0.661280] pnp 00:00: [mem 0x000d4000-0x000d7fff window]
+Sep 10 00:03:10 localhost kernel: [    0.661281] pnp 00:00: [mem 0x000d8000-0x000dbfff window]
+Sep 10 00:03:10 localhost kernel: [    0.661282] pnp 00:00: [mem 0x000dc000-0x000dffff window]
+Sep 10 00:03:10 localhost kernel: [    0.661284] pnp 00:00: [mem 0x000e0000-0x000e3fff window]
+Sep 10 00:03:10 localhost kernel: [    0.661285] pnp 00:00: [mem 0x000e4000-0x000e7fff window]
+Sep 10 00:03:10 localhost kernel: [    0.661286] pnp 00:00: [mem 0x000e8000-0x000ebfff window]
+Sep 10 00:03:10 localhost kernel: [    0.661287] pnp 00:00: [mem 0x000ec000-0x000effff window]
+Sep 10 00:03:10 localhost kernel: [    0.661289] pnp 00:00: [mem 0x000f0000-0x000fffff window]
+Sep 10 00:03:10 localhost kernel: [    0.661291] pnp 00:00: [mem 0xe0000000-0xfeafffff window]
+Sep 10 00:03:10 localhost kernel: [    0.661292] pnp 00:00: [mem 0x00010000-0x0001ffff window]
+Sep 10 00:03:10 localhost kernel: [    0.661333] pnp 00:00: Plug and Play ACPI device, IDs PNP0a08 PNP0a03 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661349] pnp 00:01: [mem 0xfed40000-0xfed44fff]
+Sep 10 00:03:10 localhost kernel: [    0.661371] system 00:01: [mem 0xfed40000-0xfed44fff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661373] system 00:01: Plug and Play ACPI device, IDs PNP0c01 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661381] pnp 00:02: [io  0x0000-0x001f]
+Sep 10 00:03:10 localhost kernel: [    0.661382] pnp 00:02: [io  0x0081-0x0091]
+Sep 10 00:03:10 localhost kernel: [    0.661383] pnp 00:02: [io  0x0093-0x009f]
+Sep 10 00:03:10 localhost kernel: [    0.661384] pnp 00:02: [io  0x00c0-0x00df]
+Sep 10 00:03:10 localhost kernel: [    0.661386] pnp 00:02: [dma 4]
+Sep 10 00:03:10 localhost kernel: [    0.661398] pnp 00:02: Plug and Play ACPI device, IDs PNP0200 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661403] pnp 00:03: [mem 0xff000000-0xffffffff]
+Sep 10 00:03:10 localhost kernel: [    0.661415] pnp 00:03: Plug and Play ACPI device, IDs INT0800 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661469] pnp 00:04: [mem 0xfed00000-0xfed003ff]
+Sep 10 00:03:10 localhost kernel: [    0.661483] pnp 00:04: Plug and Play ACPI device, IDs PNP0103 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661490] pnp 00:05: [io  0x002e-0x002f]
+Sep 10 00:03:10 localhost kernel: [    0.661491] pnp 00:05: [io  0x004e-0x004f]
+Sep 10 00:03:10 localhost kernel: [    0.661492] pnp 00:05: [io  0x0061]
+Sep 10 00:03:10 localhost kernel: [    0.661493] pnp 00:05: [io  0x0063]
+Sep 10 00:03:10 localhost kernel: [    0.661494] pnp 00:05: [io  0x0065]
+Sep 10 00:03:10 localhost kernel: [    0.661495] pnp 00:05: [io  0x0067]
+Sep 10 00:03:10 localhost kernel: [    0.661496] pnp 00:05: [io  0x0070]
+Sep 10 00:03:10 localhost kernel: [    0.661497] pnp 00:05: [io  0x0080]
+Sep 10 00:03:10 localhost kernel: [    0.661498] pnp 00:05: [io  0x0092]
+Sep 10 00:03:10 localhost kernel: [    0.661499] pnp 00:05: [io  0x00b2-0x00b3]
+Sep 10 00:03:10 localhost kernel: [    0.661500] pnp 00:05: [io  0x0680-0x069f]
+Sep 10 00:03:10 localhost kernel: [    0.661501] pnp 00:05: [io  0x1000-0x100f]
+Sep 10 00:03:10 localhost kernel: [    0.661502] pnp 00:05: [io  0xffff]
+Sep 10 00:03:10 localhost kernel: [    0.661503] pnp 00:05: [io  0xffff]
+Sep 10 00:03:10 localhost kernel: [    0.661504] pnp 00:05: [io  0x0400-0x0453]
+Sep 10 00:03:10 localhost kernel: [    0.661505] pnp 00:05: [io  0x0458-0x047f]
+Sep 10 00:03:10 localhost kernel: [    0.661506] pnp 00:05: [io  0x0500-0x057f]
+Sep 10 00:03:10 localhost kernel: [    0.661507] pnp 00:05: [io  0x164e-0x164f]
+Sep 10 00:03:10 localhost kernel: [    0.661530] system 00:05: [io  0x0680-0x069f] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661531] system 00:05: [io  0x1000-0x100f] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661533] system 00:05: [io  0xffff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661534] system 00:05: [io  0xffff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661536] system 00:05: [io  0x0400-0x0453] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661537] system 00:05: [io  0x0458-0x047f] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661539] system 00:05: [io  0x0500-0x057f] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661540] system 00:05: [io  0x164e-0x164f] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661542] system 00:05: Plug and Play ACPI device, IDs PNP0c02 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661547] pnp 00:06: [io  0x0070-0x0077]
+Sep 10 00:03:10 localhost kernel: [    0.661558] pnp 00:06: [irq 8]
+Sep 10 00:03:10 localhost kernel: [    0.661571] pnp 00:06: Plug and Play ACPI device, IDs PNP0b00 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661587] pnp 00:07: [io  0x0454-0x0457]
+Sep 10 00:03:10 localhost kernel: [    0.661606] system 00:07: [io  0x0454-0x0457] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661608] system 00:07: Plug and Play ACPI device, IDs INT3f0d PNP0c02 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661706] pnp 00:08: [io  0x03f8-0x03ff]
+Sep 10 00:03:10 localhost kernel: [    0.661712] pnp 00:08: [irq 4]
+Sep 10 00:03:10 localhost kernel: [    0.661713] pnp 00:08: [dma 0 disabled]
+Sep 10 00:03:10 localhost kernel: [    0.661749] pnp 00:08: Plug and Play ACPI device, IDs PNP0501 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661763] pnp 00:09: [io  0x0010-0x001f]
+Sep 10 00:03:10 localhost kernel: [    0.661764] pnp 00:09: [io  0x0022-0x003f]
+Sep 10 00:03:10 localhost kernel: [    0.661765] pnp 00:09: [io  0x0044-0x005f]
+Sep 10 00:03:10 localhost kernel: [    0.661766] pnp 00:09: [io  0x0062-0x0063]
+Sep 10 00:03:10 localhost kernel: [    0.661767] pnp 00:09: [io  0x0065-0x006f]
+Sep 10 00:03:10 localhost kernel: [    0.661768] pnp 00:09: [io  0x0072-0x007f]
+Sep 10 00:03:10 localhost kernel: [    0.661769] pnp 00:09: [io  0x0080]
+Sep 10 00:03:10 localhost kernel: [    0.661770] pnp 00:09: [io  0x0084-0x0086]
+Sep 10 00:03:10 localhost kernel: [    0.661771] pnp 00:09: [io  0x0088]
+Sep 10 00:03:10 localhost kernel: [    0.661772] pnp 00:09: [io  0x008c-0x008e]
+Sep 10 00:03:10 localhost kernel: [    0.661773] pnp 00:09: [io  0x0090-0x009f]
+Sep 10 00:03:10 localhost kernel: [    0.661774] pnp 00:09: [io  0x00a2-0x00bf]
+Sep 10 00:03:10 localhost kernel: [    0.661776] pnp 00:09: [io  0x00e0-0x00ef]
+Sep 10 00:03:10 localhost kernel: [    0.661777] pnp 00:09: [io  0x04d0-0x04d1]
+Sep 10 00:03:10 localhost kernel: [    0.661799] system 00:09: [io  0x04d0-0x04d1] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.661801] system 00:09: Plug and Play ACPI device, IDs PNP0c02 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661806] pnp 00:0a: [io  0x00f0-0x00ff]
+Sep 10 00:03:10 localhost kernel: [    0.661811] pnp 00:0a: [irq 13]
+Sep 10 00:03:10 localhost kernel: [    0.661825] pnp 00:0a: Plug and Play ACPI device, IDs PNP0c04 (active)
+Sep 10 00:03:10 localhost kernel: [    0.661887] pnp 00:0b: [io  0x0ca2]
+Sep 10 00:03:10 localhost kernel: [    0.661888] pnp 00:0b: [io  0x0ca3]
+Sep 10 00:03:10 localhost kernel: [    0.661903] pnp 00:0b: Plug and Play ACPI device, IDs IPI0001 (active)
+Sep 10 00:03:10 localhost kernel: [    0.662036] pnp 00:0c: [mem 0xfed1c000-0xfed1ffff]
+Sep 10 00:03:10 localhost kernel: [    0.662038] pnp 00:0c: [mem 0xfed10000-0xfed17fff]
+Sep 10 00:03:10 localhost kernel: [    0.662039] pnp 00:0c: [mem 0xfed18000-0xfed18fff]
+Sep 10 00:03:10 localhost kernel: [    0.662040] pnp 00:0c: [mem 0xfed19000-0xfed19fff]
+Sep 10 00:03:10 localhost kernel: [    0.662041] pnp 00:0c: [mem 0xf0000000-0xf3ffffff]
+Sep 10 00:03:10 localhost kernel: [    0.662042] pnp 00:0c: [mem 0xfed20000-0xfed3ffff]
+Sep 10 00:03:10 localhost kernel: [    0.662043] pnp 00:0c: [mem 0xfed90000-0xfed93fff]
+Sep 10 00:03:10 localhost kernel: [    0.662045] pnp 00:0c: [mem 0xfed45000-0xfed8ffff]
+Sep 10 00:03:10 localhost kernel: [    0.662046] pnp 00:0c: [mem 0xff000000-0xffffffff]
+Sep 10 00:03:10 localhost kernel: [    0.662047] pnp 00:0c: [mem 0xfee00000-0xfeefffff]
+Sep 10 00:03:10 localhost kernel: [    0.662048] pnp 00:0c: [mem 0xe0000000-0xe0000fff]
+Sep 10 00:03:10 localhost kernel: [    0.662071] system 00:0c: [mem 0xfed1c000-0xfed1ffff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.662073] system 00:0c: [mem 0xfed10000-0xfed17fff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.662074] system 00:0c: [mem 0xfed18000-0xfed18fff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.662076] system 00:0c: [mem 0xfed19000-0xfed19fff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.662078] system 00:0c: [mem 0xf0000000-0xf3ffffff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.662079] system 00:0c: [mem 0xfed20000-0xfed3ffff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.662081] system 00:0c: [mem 0xfed90000-0xfed93fff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.662082] system 00:0c: [mem 0xfed45000-0xfed8ffff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.662084] system 00:0c: [mem 0xff000000-0xffffffff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.662086] system 00:0c: [mem 0xfee00000-0xfeefffff] could not be reserved
+Sep 10 00:03:10 localhost kernel: [    0.662087] system 00:0c: [mem 0xe0000000-0xe0000fff] has been reserved
+Sep 10 00:03:10 localhost kernel: [    0.662089] system 00:0c: Plug and Play ACPI device, IDs PNP0c02 (active)
+Sep 10 00:03:10 localhost kernel: [    0.662193] pnp: PnP ACPI: found 13 devices
+Sep 10 00:03:10 localhost kernel: [    0.662194] ACPI: ACPI bus type pnp unregistered
+Sep 10 00:03:10 localhost kernel: [    0.668155] PCI: max bus depth: 1 pci_try_num: 2
+Sep 10 00:03:10 localhost kernel: [    0.668186] pci 0000:00:1c.0: PCI bridge to [bus 01-01]
+Sep 10 00:03:10 localhost kernel: [    0.668197] pci 0000:00:1c.6: PCI bridge to [bus 02-02]
+Sep 10 00:03:10 localhost kernel: [    0.668200] pci 0000:00:1c.6:   bridge window [io  0xe000-0xefff]
+Sep 10 00:03:10 localhost kernel: [    0.668205] pci 0000:00:1c.6:   bridge window [mem 0xef900000-0xef9fffff]
+Sep 10 00:03:10 localhost kernel: [    0.668213] pci 0000:00:1c.7: PCI bridge to [bus 03-03]
+Sep 10 00:03:10 localhost kernel: [    0.668218] pci 0000:00:1c.7:   bridge window [mem 0xee000000-0xef8fffff]
+Sep 10 00:03:10 localhost kernel: [    0.668225] pci 0000:00:1e.0: PCI bridge to [bus 04-04]
+Sep 10 00:03:10 localhost kernel: [    0.668247] pci 0000:00:1c.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+Sep 10 00:03:10 localhost kernel: [    0.668252] pci 0000:00:1c.0: setting latency timer to 64
+Sep 10 00:03:10 localhost kernel: [    0.668262] pci 0000:00:1c.6: PCI INT C -> GSI 18 (level, low) -> IRQ 18
+Sep 10 00:03:10 localhost kernel: [    0.668266] pci 0000:00:1c.6: setting latency timer to 64
+Sep 10 00:03:10 localhost kernel: [    0.668276] pci 0000:00:1c.7: PCI INT D -> GSI 19 (level, low) -> IRQ 19
+Sep 10 00:03:10 localhost kernel: [    0.668279] pci 0000:00:1c.7: setting latency timer to 64
+Sep 10 00:03:10 localhost kernel: [    0.668285] pci 0000:00:1e.0: setting latency timer to 64
+Sep 10 00:03:10 localhost kernel: [    0.668288] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7]
+Sep 10 00:03:10 localhost kernel: [    0.668290] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff]
+Sep 10 00:03:10 localhost kernel: [    0.668291] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff]
+Sep 10 00:03:10 localhost kernel: [    0.668292] pci_bus 0000:00: resource 7 [mem 0x000cc000-0x000cffff]
+Sep 10 00:03:10 localhost kernel: [    0.668294] pci_bus 0000:00: resource 8 [mem 0x000d0000-0x000d3fff]
+Sep 10 00:03:10 localhost kernel: [    0.668295] pci_bus 0000:00: resource 9 [mem 0x000d4000-0x000d7fff]
+Sep 10 00:03:10 localhost kernel: [    0.668296] pci_bus 0000:00: resource 10 [mem 0x000d8000-0x000dbfff]
+Sep 10 00:03:10 localhost kernel: [    0.668298] pci_bus 0000:00: resource 11 [mem 0x000dc000-0x000dffff]
+Sep 10 00:03:10 localhost kernel: [    0.668299] pci_bus 0000:00: resource 12 [mem 0x000e0000-0x000e3fff]
+Sep 10 00:03:10 localhost kernel: [    0.668300] pci_bus 0000:00: resource 13 [mem 0x000e4000-0x000e7fff]
+Sep 10 00:03:10 localhost kernel: [    0.668302] pci_bus 0000:00: resource 14 [mem 0xe0000000-0xfeafffff]
+Sep 10 00:03:10 localhost kernel: [    0.668303] pci_bus 0000:02: resource 0 [io  0xe000-0xefff]
+Sep 10 00:03:10 localhost kernel: [    0.668305] pci_bus 0000:02: resource 1 [mem 0xef900000-0xef9fffff]
+Sep 10 00:03:10 localhost kernel: [    0.668306] pci_bus 0000:03: resource 1 [mem 0xee000000-0xef8fffff]
+Sep 10 00:03:10 localhost kernel: [    0.668308] pci_bus 0000:04: resource 4 [io  0x0000-0x0cf7]
+Sep 10 00:03:10 localhost kernel: [    0.668309] pci_bus 0000:04: resource 5 [io  0x0d00-0xffff]
+Sep 10 00:03:10 localhost kernel: [    0.668310] pci_bus 0000:04: resource 6 [mem 0x000a0000-0x000bffff]
+Sep 10 00:03:10 localhost kernel: [    0.668312] pci_bus 0000:04: resource 7 [mem 0x000cc000-0x000cffff]
+Sep 10 00:03:10 localhost kernel: [    0.668313] pci_bus 0000:04: resource 8 [mem 0x000d0000-0x000d3fff]
+Sep 10 00:03:10 localhost kernel: [    0.668314] pci_bus 0000:04: resource 9 [mem 0x000d4000-0x000d7fff]
+Sep 10 00:03:10 localhost kernel: [    0.668316] pci_bus 0000:04: resource 10 [mem 0x000d8000-0x000dbfff]
+Sep 10 00:03:10 localhost kernel: [    0.668317] pci_bus 0000:04: resource 11 [mem 0x000dc000-0x000dffff]
+Sep 10 00:03:10 localhost kernel: [    0.668319] pci_bus 0000:04: resource 12 [mem 0x000e0000-0x000e3fff]
+Sep 10 00:03:10 localhost kernel: [    0.668320] pci_bus 0000:04: resource 13 [mem 0x000e4000-0x000e7fff]
+Sep 10 00:03:10 localhost kernel: [    0.668321] pci_bus 0000:04: resource 14 [mem 0xe0000000-0xfeafffff]
+Sep 10 00:03:10 localhost kernel: [    0.668341] NET: Registered protocol family 2
+Sep 10 00:03:10 localhost kernel: [    0.668542] IP route cache hash table entries: 524288 (order: 10, 4194304 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.669357] TCP established hash table entries: 524288 (order: 11, 8388608 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.670896] TCP bind hash table entries: 65536 (order: 8, 1048576 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.671110] TCP: Hash tables configured (established 524288 bind 65536)
+Sep 10 00:03:10 localhost kernel: [    0.671112] TCP reno registered
+Sep 10 00:03:10 localhost kernel: [    0.671137] UDP hash table entries: 16384 (order: 7, 524288 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.671262] UDP-Lite hash table entries: 16384 (order: 7, 524288 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.671412] NET: Registered protocol family 1
+Sep 10 00:03:10 localhost kernel: [    0.671431] pci 0000:00:1a.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+Sep 10 00:03:10 localhost kernel: [    0.688395] Freeing initrd memory: 14856k freed
+Sep 10 00:03:10 localhost kernel: [    0.689181] pci 0000:00:1a.0: PCI INT A disabled
+Sep 10 00:03:10 localhost kernel: [    0.689205] pci 0000:00:1d.0: PCI INT A -> GSI 23 (level, low) -> IRQ 23
+Sep 10 00:03:10 localhost kernel: [    0.709172] pci 0000:00:1d.0: PCI INT A disabled
+Sep 10 00:03:10 localhost kernel: [    0.709201] pci 0000:03:00.0: Boot video device
+Sep 10 00:03:10 localhost kernel: [    0.709214] PCI: CLS 64 bytes, default 64
+Sep 10 00:03:10 localhost kernel: [    0.709218] PCI-DMA: Using software bounce buffering for IO (SWIOTLB)
+Sep 10 00:03:10 localhost kernel: [    0.709219] Placing 64MB software IO TLB between ffff8800d965b000 - ffff8800dd65b000
+Sep 10 00:03:10 localhost kernel: [    0.709221] software IO TLB at phys 0xd965b000 - 0xdd65b000
+Sep 10 00:03:10 localhost kernel: [    0.709533] audit: initializing netlink socket (disabled)
+Sep 10 00:03:10 localhost kernel: [    0.709539] type=2000 audit(1378738982.556:1): initialized
+Sep 10 00:03:10 localhost kernel: [    0.727292] HugeTLB registered 2 MB page size, pre-allocated 0 pages
+Sep 10 00:03:10 localhost kernel: [    0.729134] VFS: Disk quotas dquot_6.5.2
+Sep 10 00:03:10 localhost kernel: [    0.729172] Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+Sep 10 00:03:10 localhost kernel: [    0.729462] fuse init (API version 7.17)
+Sep 10 00:03:10 localhost kernel: [    0.729516] msgmni has been set to 32768
+Sep 10 00:03:10 localhost kernel: [    0.729746] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+Sep 10 00:03:10 localhost kernel: [    0.729765] io scheduler noop registered
+Sep 10 00:03:10 localhost kernel: [    0.729767] io scheduler deadline registered
+Sep 10 00:03:10 localhost kernel: [    0.729784] io scheduler cfq registered (default)
+Sep 10 00:03:10 localhost kernel: [    0.729963] pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+Sep 10 00:03:10 localhost kernel: [    0.729974] pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+Sep 10 00:03:10 localhost kernel: [    0.730006] intel_idle: MWAIT substates: 0x1120
+Sep 10 00:03:10 localhost kernel: [    0.730007] intel_idle: v0.4 model 0x3A
+Sep 10 00:03:10 localhost kernel: [    0.730008] intel_idle: lapic_timer_reliable_states 0xffffffff
+Sep 10 00:03:10 localhost kernel: [    0.730049] ACPI: Deprecated procfs I/F for AC is loaded, please retry with CONFIG_ACPI_PROCFS_POWER cleared
+Sep 10 00:03:10 localhost kernel: [    0.730072] ACPI: AC Adapter [PSD] (on-line)
+Sep 10 00:03:10 localhost kernel: [    0.730128] input: Power Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input0
+Sep 10 00:03:10 localhost kernel: [    0.730133] ACPI: Power Button [PWRB]
+Sep 10 00:03:10 localhost kernel: [    0.730156] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input1
+Sep 10 00:03:10 localhost kernel: [    0.730158] ACPI: Power Button [PWRF]
+Sep 10 00:03:10 localhost kernel: [    0.730202] ACPI: Fan [FAN0] (off)
+Sep 10 00:03:10 localhost kernel: [    0.730221] ACPI: Fan [FAN1] (off)
+Sep 10 00:03:10 localhost kernel: [    0.730239] ACPI: Fan [FAN2] (off)
+Sep 10 00:03:10 localhost kernel: [    0.730257] ACPI: Fan [FAN3] (off)
+Sep 10 00:03:10 localhost kernel: [    0.730274] ACPI: Fan [FAN4] (off)
+Sep 10 00:03:10 localhost kernel: [    0.789326] thermal LNXTHERM:00: registered as thermal_zone0
+Sep 10 00:03:10 localhost kernel: [    0.789327] ACPI: Thermal Zone [TZ00] (28 C)
+Sep 10 00:03:10 localhost kernel: [    0.789441] thermal LNXTHERM:01: registered as thermal_zone1
+Sep 10 00:03:10 localhost kernel: [    0.789443] ACPI: Thermal Zone [TZ01] (30 C)
+Sep 10 00:03:10 localhost kernel: [    0.789503] ERST: Error Record Serialization Table (ERST) support is initialized.
+Sep 10 00:03:10 localhost kernel: [    0.789548] GHES: APEI firmware first mode is enabled by WHEA _OSC.
+Sep 10 00:03:10 localhost kernel: [    0.789591] Serial: 8250/16550 driver, 32 ports, IRQ sharing enabled
+Sep 10 00:03:10 localhost kernel: [    0.810278] serial8250: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+Sep 10 00:03:10 localhost kernel: [    1.029861] 00:08: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+Sep 10 00:03:10 localhost kernel: [    1.030083] Linux agpgart interface v0.103
+Sep 10 00:03:10 localhost kernel: [    1.030944] brd: module loaded
+Sep 10 00:03:10 localhost kernel: [    1.031362] loop: module loaded
+Sep 10 00:03:10 localhost kernel: [    1.031429] ahci 0000:00:1f.2: version 3.0
+Sep 10 00:03:10 localhost kernel: [    1.031438] ahci 0000:00:1f.2: PCI INT B -> GSI 19 (level, low) -> IRQ 19
+Sep 10 00:03:10 localhost kernel: [    1.031476] ahci 0000:00:1f.2: irq 41 for MSI/MSI-X
+Sep 10 00:03:10 localhost kernel: [    1.045121] ahci 0000:00:1f.2: AHCI 0001.0300 32 slots 6 ports 3 Gbps 0x3f impl SATA mode
+Sep 10 00:03:10 localhost kernel: [    1.045126] ahci 0000:00:1f.2: flags: 64bit ncq pm led clo pio slum part ems apst 
+Sep 10 00:03:10 localhost kernel: [    1.045139] ahci 0000:00:1f.2: setting latency timer to 64
+Sep 10 00:03:10 localhost kernel: [    1.085389] scsi0 : ahci
+Sep 10 00:03:10 localhost kernel: [    1.085441] scsi1 : ahci
+Sep 10 00:03:10 localhost kernel: [    1.085483] scsi2 : ahci
+Sep 10 00:03:10 localhost kernel: [    1.085524] scsi3 : ahci
+Sep 10 00:03:10 localhost kernel: [    1.085565] scsi4 : ahci
+Sep 10 00:03:10 localhost kernel: [    1.085606] scsi5 : ahci
+Sep 10 00:03:10 localhost kernel: [    1.085765] ata1: SATA max UDMA/133 abar m2048@0xefa22000 port 0xefa22100 irq 41
+Sep 10 00:03:10 localhost kernel: [    1.085768] ata2: SATA max UDMA/133 abar m2048@0xefa22000 port 0xefa22180 irq 41
+Sep 10 00:03:10 localhost kernel: [    1.085771] ata3: SATA max UDMA/133 abar m2048@0xefa22000 port 0xefa22200 irq 41
+Sep 10 00:03:10 localhost kernel: [    1.085773] ata4: SATA max UDMA/133 abar m2048@0xefa22000 port 0xefa22280 irq 41
+Sep 10 00:03:10 localhost kernel: [    1.085776] ata5: SATA max UDMA/133 abar m2048@0xefa22000 port 0xefa22300 irq 41
+Sep 10 00:03:10 localhost kernel: [    1.085779] ata6: SATA max UDMA/133 abar m2048@0xefa22000 port 0xefa22380 irq 41
+Sep 10 00:03:10 localhost kernel: [    1.085972] Fixed MDIO Bus: probed
+Sep 10 00:03:10 localhost kernel: [    1.085984] tun: Universal TUN/TAP device driver, 1.6
+Sep 10 00:03:10 localhost kernel: [    1.085985] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+Sep 10 00:03:10 localhost kernel: [    1.086017] PPP generic driver version 2.4.2
+Sep 10 00:03:10 localhost kernel: [    1.086081] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+Sep 10 00:03:10 localhost kernel: [    1.086092] ehci_hcd 0000:00:1a.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+Sep 10 00:03:10 localhost kernel: [    1.086104] ehci_hcd 0000:00:1a.0: setting latency timer to 64
+Sep 10 00:03:10 localhost kernel: [    1.086107] ehci_hcd 0000:00:1a.0: EHCI Host Controller
+Sep 10 00:03:10 localhost kernel: [    1.086136] ehci_hcd 0000:00:1a.0: new USB bus registered, assigned bus number 1
+Sep 10 00:03:10 localhost kernel: [    1.086158] ehci_hcd 0000:00:1a.0: debug port 2
+Sep 10 00:03:10 localhost kernel: [    1.090036] ehci_hcd 0000:00:1a.0: cache line size of 64 is not supported
+Sep 10 00:03:10 localhost kernel: [    1.090047] ehci_hcd 0000:00:1a.0: irq 16, io mem 0xefa24000
+Sep 10 00:03:10 localhost kernel: [    1.105079] ehci_hcd 0000:00:1a.0: USB 2.0 started, EHCI 1.00
+Sep 10 00:03:10 localhost kernel: [    1.105182] hub 1-0:1.0: USB hub found
+Sep 10 00:03:10 localhost kernel: [    1.105185] hub 1-0:1.0: 2 ports detected
+Sep 10 00:03:10 localhost kernel: [    1.105221] ehci_hcd 0000:00:1d.0: PCI INT A -> GSI 23 (level, low) -> IRQ 23
+Sep 10 00:03:10 localhost kernel: [    1.105232] ehci_hcd 0000:00:1d.0: setting latency timer to 64
+Sep 10 00:03:10 localhost kernel: [    1.105235] ehci_hcd 0000:00:1d.0: EHCI Host Controller
+Sep 10 00:03:10 localhost kernel: [    1.105265] ehci_hcd 0000:00:1d.0: new USB bus registered, assigned bus number 2
+Sep 10 00:03:10 localhost kernel: [    1.105282] ehci_hcd 0000:00:1d.0: debug port 2
+Sep 10 00:03:10 localhost kernel: [    1.109163] ehci_hcd 0000:00:1d.0: cache line size of 64 is not supported
+Sep 10 00:03:10 localhost kernel: [    1.109173] ehci_hcd 0000:00:1d.0: irq 23, io mem 0xefa23000
+Sep 10 00:03:10 localhost kernel: [    1.125075] ehci_hcd 0000:00:1d.0: USB 2.0 started, EHCI 1.00
+Sep 10 00:03:10 localhost kernel: [    1.125164] hub 2-0:1.0: USB hub found
+Sep 10 00:03:10 localhost kernel: [    1.125166] hub 2-0:1.0: 2 ports detected
+Sep 10 00:03:10 localhost kernel: [    1.125200] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Sep 10 00:03:10 localhost kernel: [    1.125207] uhci_hcd: USB Universal Host Controller Interface driver
+Sep 10 00:03:10 localhost kernel: [    1.125232] usbcore: registered new interface driver libusual
+Sep 10 00:03:10 localhost kernel: [    1.125253] i8042: PNP: No PS/2 controller found. Probing ports directly.
+Sep 10 00:03:10 localhost kernel: [    1.405017] ata5: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+Sep 10 00:03:10 localhost kernel: [    1.405034] ata4: SATA link down (SStatus 0 SControl 300)
+Sep 10 00:03:10 localhost kernel: [    1.405053] ata3: SATA link down (SStatus 0 SControl 300)
+Sep 10 00:03:10 localhost kernel: [    1.405071] ata6: SATA link down (SStatus 0 SControl 300)
+Sep 10 00:03:10 localhost kernel: [    1.405092] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+Sep 10 00:03:10 localhost kernel: [    1.405669] ata1.00: ACPI cmd ef/10:06:00:00:00:00 (SET FEATURES) succeeded
+Sep 10 00:03:10 localhost kernel: [    1.405671] ata1.00: ACPI cmd f5/00:00:00:00:00:00 (SECURITY FREEZE LOCK) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.405673] ata1.00: ACPI cmd b1/c1:00:00:00:00:00 (DEVICE CONFIGURATION OVERLAY) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.406146] ata1.00: ATA-9: WDC WD20EZRX-00DC0B0, 80.00A80, max UDMA/133
+Sep 10 00:03:10 localhost kernel: [    1.406148] ata1.00: 3907029168 sectors, multi 16: LBA48 NCQ (depth 31/32), AA
+Sep 10 00:03:10 localhost kernel: [    1.406710] ata1.00: ACPI cmd ef/10:06:00:00:00:00 (SET FEATURES) succeeded
+Sep 10 00:03:10 localhost kernel: [    1.406712] ata1.00: ACPI cmd f5/00:00:00:00:00:00 (SECURITY FREEZE LOCK) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.406714] ata1.00: ACPI cmd b1/c1:00:00:00:00:00 (DEVICE CONFIGURATION OVERLAY) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.407188] ata1.00: configured for UDMA/133
+Sep 10 00:03:10 localhost kernel: [    1.407268] scsi 0:0:0:0: Direct-Access     ATA      WDC WD20EZRX-00D 80.0 PQ: 0 ANSI: 5
+Sep 10 00:03:10 localhost kernel: [    1.407352] sd 0:0:0:0: Attached scsi generic sg0 type 0
+Sep 10 00:03:10 localhost kernel: [    1.407385] sd 0:0:0:0: [sda] 3907029168 512-byte logical blocks: (2.00 TB/1.81 TiB)
+Sep 10 00:03:10 localhost kernel: [    1.407386] sd 0:0:0:0: [sda] 4096-byte physical blocks
+Sep 10 00:03:10 localhost kernel: [    1.407412] sd 0:0:0:0: [sda] Write Protect is off
+Sep 10 00:03:10 localhost kernel: [    1.407414] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+Sep 10 00:03:10 localhost kernel: [    1.407424] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+Sep 10 00:03:10 localhost kernel: [    1.409346] ata5.00: ACPI cmd ef/10:06:00:00:00:00 (SET FEATURES) succeeded
+Sep 10 00:03:10 localhost kernel: [    1.409348] ata5.00: ACPI cmd f5/00:00:00:00:00:00 (SECURITY FREEZE LOCK) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.409350] ata5.00: ACPI cmd b1/c1:00:00:00:00:00 (DEVICE CONFIGURATION OVERLAY) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.411486] ata5.00: ATAPI: TSSTcorp DVD-ROMSN-108AB, FB01, max UDMA/100
+Sep 10 00:03:10 localhost kernel: [    1.413014] ata2: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+Sep 10 00:03:10 localhost kernel: [    1.413510] ata2.00: ACPI cmd ef/10:06:00:00:00:00 (SET FEATURES) succeeded
+Sep 10 00:03:10 localhost kernel: [    1.413512] ata2.00: ACPI cmd f5/00:00:00:00:00:00 (SECURITY FREEZE LOCK) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.413514] ata2.00: ACPI cmd b1/c1:00:00:00:00:00 (DEVICE CONFIGURATION OVERLAY) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.414013] ata2.00: ATA-9: WDC WD20EZRX-00DC0B0, 80.00A80, max UDMA/133
+Sep 10 00:03:10 localhost kernel: [    1.414015] ata2.00: 3907029168 sectors, multi 16: LBA48 NCQ (depth 31/32), AA
+Sep 10 00:03:10 localhost kernel: [    1.414237] ata5.00: ACPI cmd ef/10:06:00:00:00:00 (SET FEATURES) succeeded
+Sep 10 00:03:10 localhost kernel: [    1.414239] ata5.00: ACPI cmd f5/00:00:00:00:00:00 (SECURITY FREEZE LOCK) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.414241] ata5.00: ACPI cmd b1/c1:00:00:00:00:00 (DEVICE CONFIGURATION OVERLAY) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.414526] ata2.00: ACPI cmd ef/10:06:00:00:00:00 (SET FEATURES) succeeded
+Sep 10 00:03:10 localhost kernel: [    1.414528] ata2.00: ACPI cmd f5/00:00:00:00:00:00 (SECURITY FREEZE LOCK) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.414530] ata2.00: ACPI cmd b1/c1:00:00:00:00:00 (DEVICE CONFIGURATION OVERLAY) filtered out
+Sep 10 00:03:10 localhost kernel: [    1.414948] ata2.00: configured for UDMA/133
+Sep 10 00:03:10 localhost kernel: [    1.414996] scsi 1:0:0:0: Direct-Access     ATA      WDC WD20EZRX-00D 80.0 PQ: 0 ANSI: 5
+Sep 10 00:03:10 localhost kernel: [    1.415066] sd 1:0:0:0: [sdb] 3907029168 512-byte logical blocks: (2.00 TB/1.81 TiB)
+Sep 10 00:03:10 localhost kernel: [    1.415068] sd 1:0:0:0: [sdb] 4096-byte physical blocks
+Sep 10 00:03:10 localhost kernel: [    1.415076] sd 1:0:0:0: Attached scsi generic sg1 type 0
+Sep 10 00:03:10 localhost kernel: [    1.415117] sd 1:0:0:0: [sdb] Write Protect is off
+Sep 10 00:03:10 localhost kernel: [    1.415119] sd 1:0:0:0: [sdb] Mode Sense: 00 3a 00 00
+Sep 10 00:03:10 localhost kernel: [    1.415148] sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+Sep 10 00:03:10 localhost kernel: [    1.416377] ata5.00: configured for UDMA/100
+Sep 10 00:03:10 localhost kernel: [    1.417476] scsi 4:0:0:0: CD-ROM            TSSTcorp DVD-ROM SN-108AB FB01 PQ: 0 ANSI: 5
+Sep 10 00:03:10 localhost kernel: [    1.420125] sr0: scsi3-mmc drive: 24x/24x cd/rw xa/form2 cdda tray
+Sep 10 00:03:10 localhost kernel: [    1.420126] cdrom: Uniform CD-ROM driver Revision: 3.20
+Sep 10 00:03:10 localhost kernel: [    1.420192] sr 4:0:0:0: Attached scsi CD-ROM sr0
+Sep 10 00:03:10 localhost kernel: [    1.420234] sr 4:0:0:0: Attached scsi generic sg2 type 5
+Sep 10 00:03:10 localhost kernel: [    1.427962]  sda: sda1 sda2 sda3 sda4
+Sep 10 00:03:10 localhost kernel: [    1.642714] sd 0:0:0:0: [sda] Attached SCSI disk
+Sep 10 00:03:10 localhost kernel: [    1.708939] Refined TSC clocksource calibration: 3092.973 MHz.
+Sep 10 00:03:10 localhost kernel: [    1.708941] Switching to clocksource tsc
+Sep 10 00:03:10 localhost kernel: [    2.160875] i8042: No controller found
+Sep 10 00:03:10 localhost kernel: [    2.160893]  sdb: sdb1 sdb2 sdb3 sdb4
+Sep 10 00:03:10 localhost kernel: [    2.160943] mousedev: PS/2 mouse device common for all mice
+Sep 10 00:03:10 localhost kernel: [    2.161015] rtc_cmos 00:06: RTC can wake from S4
+Sep 10 00:03:10 localhost kernel: [    2.161099] sd 1:0:0:0: [sdb] Attached SCSI disk
+Sep 10 00:03:10 localhost kernel: [    2.161101] rtc_cmos 00:06: rtc core: registered rtc_cmos as rtc0
+Sep 10 00:03:10 localhost kernel: [    2.161127] rtc0: alarms up to one month, y3k, 242 bytes nvram, hpet irqs
+Sep 10 00:03:10 localhost kernel: [    2.161171] device-mapper: uevent: version 1.0.3
+Sep 10 00:03:10 localhost kernel: [    2.161206] device-mapper: ioctl: 4.22.0-ioctl (2011-10-19) initialised: dm-devel@redhat.com
+Sep 10 00:03:10 localhost kernel: [    2.161264] cpuidle: using governor ladder
+Sep 10 00:03:10 localhost kernel: [    2.161346] cpuidle: using governor menu
+Sep 10 00:03:10 localhost kernel: [    2.161347] EFI Variables Facility v0.08 2004-May-17
+Sep 10 00:03:10 localhost kernel: [    2.161465] TCP cubic registered
+Sep 10 00:03:10 localhost kernel: [    2.161522] NET: Registered protocol family 10
+Sep 10 00:03:10 localhost kernel: [    2.161758] NET: Registered protocol family 17
+Sep 10 00:03:10 localhost kernel: [    2.161761] Registering the dns_resolver key type
+Sep 10 00:03:10 localhost kernel: [    2.161913] PM: Hibernation image not present or could not be loaded.
+Sep 10 00:03:10 localhost kernel: [    2.161921] registered taskstats version 1
+Sep 10 00:03:10 localhost kernel: [    2.166351]   Magic number: 13:796:82
+Sep 10 00:03:10 localhost kernel: [    2.166439] rtc_cmos 00:06: setting system clock to 2013-09-09 15:03:04 UTC (1378738984)
+Sep 10 00:03:10 localhost kernel: [    2.167016] BIOS EDD facility v0.16 2004-Jun-25, 0 devices found
+Sep 10 00:03:10 localhost kernel: [    2.167017] EDD information not available.
+Sep 10 00:03:10 localhost kernel: [    2.167978] Freeing unused kernel memory: 924k freed
+Sep 10 00:03:10 localhost kernel: [    2.168056] Write protecting the kernel read-only data: 12288k
+Sep 10 00:03:10 localhost kernel: [    2.170862] Freeing unused kernel memory: 1588k freed
+Sep 10 00:03:10 localhost kernel: [    2.173069] Freeing unused kernel memory: 1188k freed
+Sep 10 00:03:10 localhost kernel: [    2.184635] md: linear personality registered for level -1
+Sep 10 00:03:10 localhost kernel: [    2.193616] md: multipath personality registered for level -4
+Sep 10 00:03:10 localhost kernel: [    2.195572] md: raid0 personality registered for level 0
+Sep 10 00:03:10 localhost kernel: [    2.197973] md: raid1 personality registered for level 1
+Sep 10 00:03:10 localhost kernel: [    2.199139] e1000e: Intel(R) PRO/1000 Network Driver - 1.5.1-k
+Sep 10 00:03:10 localhost kernel: [    2.199141] e1000e: Copyright(c) 1999 - 2011 Intel Corporation.
+Sep 10 00:03:10 localhost kernel: [    2.199169] e1000e 0000:00:19.0: PCI INT A -> GSI 20 (level, low) -> IRQ 20
+Sep 10 00:03:10 localhost kernel: [    2.199177] e1000e 0000:00:19.0: setting latency timer to 64
+Sep 10 00:03:10 localhost kernel: [    2.199263] e1000e 0000:00:19.0: irq 42 for MSI/MSI-X
+Sep 10 00:03:10 localhost kernel: [    2.200484] async_tx: api initialized (async)
+Sep 10 00:03:10 localhost kernel: [    2.264822] raid6: int64x1   4070 MB/s
+Sep 10 00:03:10 localhost kernel: [    2.332801] raid6: int64x2   4379 MB/s
+Sep 10 00:03:10 localhost kernel: [    2.372798] usb 1-1: new high-speed USB device number 2 using ehci_hcd
+Sep 10 00:03:10 localhost kernel: [    2.387813] md: bind<sda3>
+Sep 10 00:03:10 localhost kernel: [    2.400788] raid6: int64x4   3698 MB/s
+Sep 10 00:03:10 localhost kernel: [    2.468778] raid6: int64x8   2967 MB/s
+Sep 10 00:03:10 localhost kernel: [    2.501978] e1000e 0000:00:19.0: eth0: (PCI Express:2.5GT/s:Width x1) 00:22:4d:69:07:7e
+Sep 10 00:03:10 localhost kernel: [    2.501980] e1000e 0000:00:19.0: eth0: Intel(R) PRO/1000 Network Connection
+Sep 10 00:03:10 localhost kernel: [    2.502014] e1000e 0000:00:19.0: eth0: MAC: 10, PHY: 11, PBA No: 313130-031
+Sep 10 00:03:10 localhost kernel: [    2.502024] e1000e 0000:02:00.0: Disabling ASPM L0s L1
+Sep 10 00:03:10 localhost kernel: [    2.502039] e1000e 0000:02:00.0: PCI INT A -> GSI 18 (level, low) -> IRQ 18
+Sep 10 00:03:10 localhost kernel: [    2.502062] e1000e 0000:02:00.0: setting latency timer to 64
+Sep 10 00:03:10 localhost kernel: [    2.502295] e1000e 0000:02:00.0: irq 43 for MSI/MSI-X
+Sep 10 00:03:10 localhost kernel: [    2.502298] e1000e 0000:02:00.0: irq 44 for MSI/MSI-X
+Sep 10 00:03:10 localhost kernel: [    2.502301] e1000e 0000:02:00.0: irq 45 for MSI/MSI-X
+Sep 10 00:03:10 localhost kernel: [    2.505454] hub 1-1:1.0: USB hub found
+Sep 10 00:03:10 localhost kernel: [    2.505541] hub 1-1:1.0: 6 ports detected
+Sep 10 00:03:10 localhost kernel: [    2.536756] raid6: sse2x1    9425 MB/s
+Sep 10 00:03:10 localhost kernel: [    2.604736] raid6: sse2x2   11718 MB/s
+Sep 10 00:03:10 localhost kernel: [    2.608359] e1000e 0000:02:00.0: eth1: (PCI Express:2.5GT/s:Width x1) 00:22:4d:69:07:7d
+Sep 10 00:03:10 localhost kernel: [    2.608361] e1000e 0000:02:00.0: eth1: Intel(R) PRO/1000 Network Connection
+Sep 10 00:03:10 localhost kernel: [    2.608444] e1000e 0000:02:00.0: eth1: MAC: 3, PHY: 8, PBA No: 313130-033
+Sep 10 00:03:10 localhost kernel: [    2.620741] usb 2-1: new high-speed USB device number 2 using ehci_hcd
+Sep 10 00:03:10 localhost kernel: [    2.672719] raid6: sse2x4   13574 MB/s
+Sep 10 00:03:10 localhost kernel: [    2.672720] raid6: using algorithm sse2x4 (13574 MB/s)
+Sep 10 00:03:10 localhost kernel: [    2.673051] xor: automatically using best checksumming function: generic_sse
+Sep 10 00:03:10 localhost kernel: [    2.692717]    generic_sse: 15359.000 MB/sec
+Sep 10 00:03:10 localhost kernel: [    2.692719] xor: using function: generic_sse (15359.000 MB/sec)
+Sep 10 00:03:10 localhost kernel: [    2.692834] md: bind<sda1>
+Sep 10 00:03:10 localhost kernel: [    2.693248] md: raid6 personality registered for level 6
+Sep 10 00:03:10 localhost kernel: [    2.693249] md: raid5 personality registered for level 5
+Sep 10 00:03:10 localhost kernel: [    2.693250] md: raid4 personality registered for level 4
+Sep 10 00:03:10 localhost kernel: [    2.694009] md: bind<sda2>
+Sep 10 00:03:10 localhost kernel: [    2.694989] md: bind<sda4>
+Sep 10 00:03:10 localhost kernel: [    2.695923] md: bind<sdb4>
+Sep 10 00:03:10 localhost kernel: [    2.696059] md: raid10 personality registered for level 10
+Sep 10 00:03:10 localhost kernel: [    2.696682] bio: create slab <bio-1> at 1
+Sep 10 00:03:10 localhost kernel: [    2.696718] md/raid1:md2: not clean -- starting background reconstruction
+Sep 10 00:03:10 localhost kernel: [    2.696720] md/raid1:md2: active with 2 out of 2 mirrors
+Sep 10 00:03:10 localhost kernel: [    2.696733] md2: detected capacity change from 0 to 1867765317632
+Sep 10 00:03:10 localhost kernel: [    2.696832] md: resync of RAID array md2
+Sep 10 00:03:10 localhost kernel: [    2.696833] md: minimum _guaranteed_  speed: 1000 KB/sec/disk.
+Sep 10 00:03:10 localhost kernel: [    2.696834] md: using maximum available idle IO bandwidth (but not more than 200000 KB/sec) for resync.
+Sep 10 00:03:10 localhost kernel: [    2.696836] md: using 128k window, over a total of 1823989568k.
+Sep 10 00:03:10 localhost kernel: [    2.721128]  md2: unknown partition table
+Sep 10 00:03:10 localhost kernel: [    2.722104] md: bind<sdb3>
+Sep 10 00:03:10 localhost kernel: [    2.722984] md/raid1:md3: not clean -- starting background reconstruction
+Sep 10 00:03:10 localhost kernel: [    2.722986] md/raid1:md3: active with 2 out of 2 mirrors
+Sep 10 00:03:10 localhost kernel: [    2.723006] md3: detected capacity change from 0 to 31982485504
+Sep 10 00:03:10 localhost kernel: [    2.723166] md: delaying resync of md3 until md2 has finished (they share one or more physical units)
+Sep 10 00:03:10 localhost kernel: [    2.753405] hub 2-1:1.0: USB hub found
+Sep 10 00:03:10 localhost kernel: [    2.753500] hub 2-1:1.0: 6 ports detected
+Sep 10 00:03:10 localhost kernel: [    2.762565] md: bind<sdb2>
+Sep 10 00:03:10 localhost kernel: [    2.763473] md/raid1:md1: not clean -- starting background reconstruction
+Sep 10 00:03:10 localhost kernel: [    2.763475] md/raid1:md1: active with 2 out of 2 mirrors
+Sep 10 00:03:10 localhost kernel: [    2.763494] md1: detected capacity change from 0 to 99932307456
+Sep 10 00:03:10 localhost kernel: [    2.764133] md: delaying resync of md1 until md2 has finished (they share one or more physical units)
+Sep 10 00:03:10 localhost kernel: [    2.768787] md: bind<sdb1>
+Sep 10 00:03:10 localhost kernel: [    2.769754] md/raid1:md0: active with 2 out of 2 mirrors
+Sep 10 00:03:10 localhost kernel: [    2.769775] md0: detected capacity change from 0 to 498794496
+Sep 10 00:03:10 localhost kernel: [    2.770691]  md0: unknown partition table
+Sep 10 00:03:10 localhost kernel: [    2.774742]  md3: unknown partition table
+Sep 10 00:03:10 localhost kernel: [    2.824843] usb 1-1.1: new low-speed USB device number 3 using ehci_hcd
+Sep 10 00:03:10 localhost kernel: [    2.924294] input: USB Optical Mouse as /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1:1.0/input/input2
+Sep 10 00:03:10 localhost kernel: [    2.924388] generic-usb 0003:0461:4D0F.0001: input,hidraw0: USB HID v1.11 Mouse [USB Optical Mouse] on usb-0000:00:1a.0-1.1/input0
+Sep 10 00:03:10 localhost kernel: [    2.924397] usbcore: registered new interface driver usbhid
+Sep 10 00:03:10 localhost kernel: [    2.924398] usbhid: USB HID core driver
+Sep 10 00:03:10 localhost kernel: [    2.954559]  md1: unknown partition table
+Sep 10 00:03:10 localhost kernel: [    2.992857] usb 1-1.2: new low-speed USB device number 4 using ehci_hcd
+Sep 10 00:03:10 localhost kernel: [    3.093450] input: USB Multimedia Keyboard as /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0/input/input3
+Sep 10 00:03:10 localhost kernel: [    3.093634] generic-usb 0003:0461:4DCB.0002: input,hidraw1: USB HID v1.10 Keyboard [USB Multimedia Keyboard] on usb-0000:00:1a.0-1.2/input0
+Sep 10 00:03:10 localhost kernel: [    3.098997] input: USB Multimedia Keyboard as /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.1/input/input4
+Sep 10 00:03:10 localhost kernel: [    3.099176] generic-usb 0003:0461:4DCB.0003: input,hidraw2: USB HID v1.10 Device [USB Multimedia Keyboard] on usb-0000:00:1a.0-1.2/input1
+Sep 10 00:03:10 localhost kernel: [    3.521313] EXT4-fs (md1): mounted filesystem with ordered data mode. Opts: (null)
+Sep 10 00:03:10 localhost kernel: [    4.722308] Adding 31232892k swap on /dev/md3.  Priority:-1 extents:1 across:31232892k 
+Sep 10 00:03:10 localhost kernel: [    5.063681] ADDRCONF(NETDEV_UP): eth0: link is not ready
+Sep 10 00:03:10 localhost kernel: [    5.063685] ADDRCONF(NETDEV_UP): eth1: link is not ready
+Sep 10 00:03:10 localhost kernel: [    5.393126] lp: driver loaded but no devices found
+Sep 10 00:03:10 localhost kernel: [    5.489200] power_meter ACPI000D:00: Found ACPI power meter.
+Sep 10 00:03:10 localhost kernel: [    6.439157] type=1400 audit(1378738988.769:2): apparmor="STATUS" operation="profile_load" name="/sbin/dhclient" pid=593 comm="apparmor_parser"
+Sep 10 00:03:10 localhost kernel: [    6.439187] type=1400 audit(1378738988.769:3): apparmor="STATUS" operation="profile_load" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=593 comm="apparmor_parser"
+Sep 10 00:03:10 localhost kernel: [    6.439212] type=1400 audit(1378738988.769:4): apparmor="STATUS" operation="profile_load" name="/usr/lib/connman/scripts/dhclient-script" pid=593 comm="apparmor_parser"
+Sep 10 00:03:10 localhost kernel: [    6.440129] type=1400 audit(1378738988.773:5): apparmor="STATUS" operation="profile_replace" name="/sbin/dhclient" pid=595 comm="apparmor_parser"
+Sep 10 00:03:10 localhost kernel: [    6.440162] type=1400 audit(1378738988.773:6): apparmor="STATUS" operation="profile_replace" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=595 comm="apparmor_parser"
+Sep 10 00:03:10 localhost kernel: [    6.440188] type=1400 audit(1378738988.773:7): apparmor="STATUS" operation="profile_replace" name="/usr/lib/connman/scripts/dhclient-script" pid=595 comm="apparmor_parser"
+Sep 10 00:03:10 localhost kernel: [    6.443334] type=1400 audit(1378738988.773:8): apparmor="STATUS" operation="profile_replace" name="/sbin/dhclient" pid=563 comm="apparmor_parser"
+Sep 10 00:03:10 localhost kernel: [    6.443366] type=1400 audit(1378738988.773:9): apparmor="STATUS" operation="profile_replace" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=563 comm="apparmor_parser"
+Sep 10 00:03:10 localhost kernel: [    6.443392] type=1400 audit(1378738988.773:10): apparmor="STATUS" operation="profile_replace" name="/usr/lib/connman/scripts/dhclient-script" pid=563 comm="apparmor_parser"
+Sep 10 00:03:10 localhost kernel: [    6.777382] e1000e 0000:00:19.0: irq 42 for MSI/MSI-X
+Sep 10 00:03:10 localhost kernel: [    6.831895] e1000e 0000:00:19.0: irq 42 for MSI/MSI-X
+Sep 10 00:03:10 localhost kernel: [    6.832654] ADDRCONF(NETDEV_UP): eth0: link is not ready
+Sep 10 00:03:10 localhost kernel: [    6.837583] vesafb: mode is 1024x768x32, linelength=4096, pages=0
+Sep 10 00:03:10 localhost kernel: [    6.837584] vesafb: scrolling: redraw
+Sep 10 00:03:10 localhost kernel: [    6.837586] vesafb: Truecolor: size=8:8:8:8, shift=24:16:8:0
+Sep 10 00:03:10 localhost kernel: [    6.840378] vesafb: framebuffer at 0xee000000, mapped to 0xffffc9000c700000, using 3072k, total 3072k
+Sep 10 00:03:10 localhost kernel: [    6.840527] Console: switching to colour frame buffer device 128x48
+Sep 10 00:03:10 localhost kernel: [    6.840539] fb0: VESA VGA frame buffer device
+Sep 10 00:03:10 localhost kernel: [    7.019905] EXT4-fs (md1): re-mounted. Opts: errors=remount-ro
+Sep 10 00:03:10 localhost kernel: [    7.292085] EXT4-fs (md0): mounted filesystem with ordered data mode. Opts: (null)
+Sep 10 00:03:12 localhost kernel: [    9.688863] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: None
+Sep 10 00:03:12 localhost kernel: [    9.689658] ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+Sep 10 00:03:12 localhost dhclient: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 8
+Sep 10 00:03:12 localhost dhclient: DHCPREQUEST of 192.168.1.7 on eth0 to 255.255.255.255 port 67
+Sep 10 00:03:12 localhost dhclient: DHCPOFFER of 192.168.1.7 from 192.168.1.1
+Sep 10 00:03:12 localhost dhclient: DHCPACK of 192.168.1.7 from 192.168.1.1
+Sep 10 00:03:12 localhost dhclient: bound to 192.168.1.7 -- renewal in 5436 seconds.
+Sep 10 00:03:13 localhost kernel: [   10.704336] init: failsafe main process (704) killed by TERM signal
+Sep 10 00:03:13 localhost kernel: [   11.221004] type=1400 audit(1378738993.553:11): apparmor="STATUS" operation="profile_load" name="/usr/sbin/tcpdump" pid=832 comm="apparmor_parser"
+Sep 10 00:03:13 localhost cron[857]: (CRON) INFO (pidfile fd = 3)
+Sep 10 00:03:13 localhost cron[863]: (CRON) STARTUP (fork ok)
+Sep 10 00:03:13 localhost cron[863]: (CRON) INFO (Running @reboot jobs)
+Sep 10 00:03:22 localhost ntpdate[796]: adjust time server 91.189.94.4 offset 0.345015 sec
+Sep 10 00:08:12 localhost kernel: [  310.435740] ip6_tables: (C) 2000-2006 Netfilter Core Team
+Sep 10 00:08:13 localhost kernel: [  310.527663] ip_tables: (C) 2000-2006 Netfilter Core Team
