@@ -347,7 +347,7 @@ default install
 label install
   menu label ^Install Ubuntu Server
   kernel ubuntu-installer/amd64/linux
-  append auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth1 hostname=deb01 domain=localdomain.local url=http://192.168.1.10/preseed.cfg initrd=ubuntu-installer/amd64/initrd.gz vga=normal quiet --
+  append DEBCONF_DEBUG=5 auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth0 hostname=localhost domain=localdomain url=http://192.168.1.31/preseed.cfg initrd=ubuntu-installer/amd64/initrd.gz vga=normal quiet --
 ```
 
 #### preseed.cfg
