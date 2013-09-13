@@ -434,6 +434,61 @@ d-i grub-installer/bootdev string (hd0,0)
 d-i finish-install/reboot_in_progress note
 ```
 
+#### partman
+
+[Notes on using expert_recipe in Debian/Ubuntu Preseed Files | Semi-Empirical Shenanigans](http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/) がいい感じ。
+
+##### 超基本的な設定
+
+以下の条件を仮定する。
+
+- 実装メモリ: 16GB
+- HDD: 2TB
+
+実装メモリ16GBなので最大32GBまでswapを伸長する。  
+そしてrootパーティション以外の領域はすべて `/srv/extra` に割り当てる。
+
+```
+# Destroy All RAID device settings
+d-i partman-md/device_remove_md boolean true
+# Destroy All LVM device settings
+d-i partman-lvm/device_remove_lvm boolean true
+
+d-i partman-auto/disk string /dev/sda
+d-i partman-auto/method string regular
+d-i partman-auto/expert_recipe string root :: 19000 50 50000 ext4 \
+        $primary{ } $bootable{ } method{ format } \
+        format{ } use_filesystem{ } filesystem{ ext4 } \
+        mountpoint{ / } \
+    . \
+    16384 90 32768 linux-swap \
+        $primary{ } method{ swap } format{ } \
+    . \
+    100 100 10000000000 ext3 \
+        $primary{ } method{ format } format{ } \
+        use_filesystem{ } filesystem{ ext4 } \
+        mountpoint{ /srv/extra } \
+    .
+d-i partman-auto/choose_recipe select root
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select Finish partitioning and write changes to disk
+d-i partman/confirm boolean true
+```
+
+以下、解説。
+
+まず、既にRAIDの設定がしてあると「RAID消すけどいいですか？」って確認画面が出てしまうので「どうぞ削除してください」っていう命令を出す。
+
+```
+d-i partman-md/device_remove_md boolean true
+```
+
+次、「LVM消すけどいいですか？」って確認画面が出るので「どうぞ削除してください」と答える。
+
+```
+d-i partman-lvm/device_remove_lvm boolean true
+```
+
 ## デバッグに関して
 
 *僕はここではpartmanの設定の仕方をマスターしたいので調べました。*
