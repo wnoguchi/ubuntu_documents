@@ -341,6 +341,8 @@ PXEブートサーバーについては
 
 を参照。
 
+### pxelinuxのconfig
+
 ```
 # /var/lib/tftpboot/ubuntu-installer/amd64/pxelinux.cfg/default
 default install
@@ -350,9 +352,14 @@ label install
   append DEBCONF_DEBUG=5 auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth0 hostname=localhost domain=localdomain url=http://192.168.1.31/preseed.cfg initrd=ubuntu-installer/amd64/initrd.gz vga=normal quiet --
 ```
 
-#### preseed.cfg
+### preseed.cfg
 
-うごかない、うごかない・・・。
+~うごかない、うごかない・・・。~  
+動かないというのは語弊がある。  
+RX100S7のPXEとIPMI管理ポート、PXE+DHCPサーバーのセグメントと、eth0の通常のNICには  
+NTTのブロードバンドルーターのDHCPの下に置いてDHCP2本立てにしたらパーティショニングの警告画面のところまで進んだ。  
+DHCPは一本に絞りたいけど、同じにするとなぜかPXEクライアントがDHCP解決した後のLinuxブートシーケンスでDHCP解決に失敗する。  
+どげんかせんといかん。
 
 ```
 # /var/lib/tftpboot/preseed.cfg
