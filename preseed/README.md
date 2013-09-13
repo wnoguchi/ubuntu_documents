@@ -491,9 +491,11 @@ d-i partman-lvm/device_remove_lvm boolean true
 
 ## デバッグに関して
 
-*僕はここではpartmanの設定の仕方をマスターしたいので調べました。*
-
-カーネルパラメータに `DEBCONF_DEBUG=5` を指定する。  
+カーネルパラメータに `DEBCONF_DEBUG=5` を指定するとログ出力されるので便利。  
+**インストール中にPreseedのログを確認したいときは `Alt+F4` の仮想コンソールで見ることができる。便利。**  
+Preseedに関連するコマンドもここで出力されるのでこれを見ながら設定していくといい。  
+というかこれ以外まともなドキュメントが存在しない。  
+Kickstartよりひどい。  
 出力されるログは2つ？  
 2つある。どっちが正しいのかわからない。
 
@@ -502,7 +504,8 @@ d-i partman-lvm/device_remove_lvm boolean true
 1. `/var/log/syslog`  
 許せるレベル。
 
-なんか、 `/var/log/syslog` は違う気がするんだよなあ。。。
+なんか、 `/var/log/syslog` は違う気がする。  
+たぶん `/var/log/installer/syslog`  に出力されるのが Preseed に関するログ。
 
 ## 参考サイト
 
