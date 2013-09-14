@@ -330,6 +330,8 @@ label hd
 
 うまくいった。
 
+設定ファイルは [DVD self contains Basic Preseeding](preseed.cfg/dvd-self-contain/basic/README.md) を参照。
+
 ## PXE+Preseedでやってみた
 
 192.168.1.10がPXEブートサーバー兼TFTPサーバーとなっている。  
