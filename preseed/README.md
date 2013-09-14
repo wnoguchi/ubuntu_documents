@@ -363,6 +363,12 @@ DHCPは一本に絞りたいけど、同じにするとなぜかPXEクライア�
 
 ```
 # /var/lib/tftpboot/preseed.cfg
+#===========================================================================================
+# BOOT SEQUENCE CONFIGURATIONS START
+# ENDの設定のところまではDVDメディア、USBメディアに同梱している場合にのみ有効になる設定。
+# PXEブートの場合はこのセクションは無視される。
+# この場合はpxelinuxのconfigのappendに直接記述する必要がある。
+#===========================================================================================
 d-i debian-installer/language string en
 d-i debian-installer/country string US
 d-i debian-installer/locale string en_US.UTF-8
@@ -381,6 +387,9 @@ d-i netcfg/confirm_static boolean true
 d-i netcfg/get_hostname string openstack 
 d-i netcfg/get_domain string sv.pg1x.com 
 d-i netcfg/wireless_wep string 
+#===========================================================================================
+# BOOT SEQUENCE CONFIGURATIONS END
+#===========================================================================================
 
 d-i mirror/country string manual
 d-i mirror/http/hostname string archive.ubuntu.com
@@ -391,21 +400,32 @@ d-i clock-setup/utc boolean false
 d-i time/zone string Japan 
 d-i clock-setup/ntp boolean false 
 
-d-i partman-auto/init_automatically_partition select biggest_free 
+#========================================================================
+# Destroy All RAID device settings
+d-i partman-md/device_remove_md boolean true
+# Destroy All LVM device settings
+d-i partman-lvm/device_remove_lvm boolean true
+
 d-i partman-auto/disk string /dev/sda
-d-i partman-auto/method string regular 
-d-i partman-lvm/device_remove_lvm boolean true 
-d-i partman-auto/choose_recipe select atomic 
-d-i partman/default_filesystem string ext4 
-d-i partman-partitioning/confirm_write_new_label boolean true 
-d-i partman/choose_partition select finish 
-d-i partman/confirm boolean true 
-d-i partman/confirm_nooverwrite boolean true 
-d-i partman-partitioning/confirm_write_new_label boolean true 
-d-i partman/choose_partition select finish 
-d-i partman/confirm boolean true 
-d-i partman/confirm_nooverwrite boolean true 
-d-i partman/mount_style select traditional
+d-i partman-auto/method string regular
+d-i partman-auto/expert_recipe string root :: 19000 50 50000 ext4 \
+        $primary{ } $bootable{ } method{ format } \
+        format{ } use_filesystem{ } filesystem{ ext4 } \
+        mountpoint{ / } \
+    . \
+    16384 90 32768 linux-swap \
+        $primary{ } method{ swap } format{ } \
+    . \
+    100 100 10000000000 ext3 \
+        $primary{ } method{ format } format{ } \
+        use_filesystem{ } filesystem{ ext4 } \
+        mountpoint{ /srv/extra } \
+    .
+d-i partman-auto/choose_recipe select root
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select Finish partitioning and write changes to disk
+d-i partman/confirm boolean true
+#========================================================================
 
 d-i base-installer/install-recommends boolean true 
 d-i base-installer/kernel/image string linux-generic 
@@ -488,6 +508,10 @@ d-i partman-md/device_remove_md boolean true
 ```
 d-i partman-lvm/device_remove_lvm boolean true
 ```
+
+##### 次のステップ
+
+**TODO**
 
 ## デバッグに関して
 
