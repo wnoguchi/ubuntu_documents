@@ -129,7 +129,7 @@ default install
 label install
   menu label ^Install Ubuntu Server
   kernel /install/vmlinuz
-  append  auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false url=http://192.168.1.101/preseed.cfg vga=normal initrd=/install/initrd.gz quiet --
+  append DEBCONF_DEBUG=5 auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth0 hostname=localhost domain=localdomain url=http://192.168.1.101/preseed.cfg vga=normal initrd=/install/initrd.gz quiet --
 label hd
   menu label ^Boot from first hard disk
   localboot 0x80
