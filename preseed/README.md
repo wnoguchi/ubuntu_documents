@@ -481,7 +481,7 @@ d-i partman-auto/expert_recipe string root :: 19000 50 50000 ext4 \
         format{ } use_filesystem{ } filesystem{ ext4 } \
         mountpoint{ / } \
     . \
-    16384 90 32768 linux-swap \
+    32768 90 32768 linux-swap \
         $primary{ } method{ swap } format{ } \
     . \
     100 100 10000000000 ext3 \
@@ -509,49 +509,60 @@ d-i partman-md/device_remove_md boolean true
 d-i partman-lvm/device_remove_lvm boolean true
 ```
 
-##### RAID1 + LVM
+##### ソフトウェアRAID1 + LVMを構成する
 
 ```
+# Destroy All RAID device settings
+d-i partman-md/device_remove_md boolean true
+# Destroy All LVM device settings
+d-i partman-lvm/device_remove_lvm boolean true
+
+# RAIDアレイに加えるディスクを指定する
 d-i     partman-auto/disk string /dev/sda /dev/sdb
+
+# RAIDを構成する
 d-i     partman-auto/method string raid
-d-i     partman-lvm/device_remove_lvm boolean true
-d-i     partman-md/device_remove_md boolean true
+
+# LVMを構成する
 d-i     partman-lvm/confirm boolean true
+
+# partmanエキスパート: boot-rootレシピを選択する
 d-i     partman-auto/choose_recipe select boot-root
-d-i     partman-auto-lvm/new_vg_name string vg00
+
+# LVMボリュームグループの名前
+d-i     partman-auto-lvm/new_vg_name string cinder-volumes
+
+# boot-rootレシピの定義
 d-i     partman-auto/expert_recipe string        \
            boot-root ::                          \
              1024 30 1024 raid                   \
                 $lvmignore{ }                    \
-                $primary{ } method{ raid }       \
-             .                                   \
-             1000 35 100000000 raid              \
-                $lvmignore{ }                    \
-                $primary{ } method{ raid }       \
-             .                                   \
-             19000 50 20000 ext4                 \
-                $defaultignore{ }                \
-                $lvmok{ }                        \
-                lv_name{ root }                  \
-                method{ format }                 \
+                $primary{ } $bootable{ } method{ raid }       \
                 format{ }                        \
-                use_filesystem{ }                \
-                filesystem{ ext4 }               \
-                mountpoint{ / }                  \
              .                                   \
-             2048 60 2048 swap                   \
+             50000 50 50000 raid                 \
+                $lvmignore{ }                    \
+                method{ raid }                   \
+                format{ }                        \
+             .                                   \
+             32768 60 32768 raid                 \
                 $defaultignore{ }                \
                 $lvmok{ }                        \
-                lv_name{ swap }                  \
-                method{ swap }                   \
+                method{ raid }                   \
                 format{ }                        \
             .                                    
 d-i partman-auto-raid/recipe string \
-    1 2 0 ext2 /boot                \
+    1 2 0 ext4 /boot                \
           /dev/sda1#/dev/sdb1       \
     .                               \
-    1 2 0 lvm -                     \
+    1 2 0 ext4 /                    \
           /dev/sda2#/dev/sdb2       \
+    .                               \
+    1 2 0 lvm -                     \
+          /dev/sda3#/dev/sdb3       \
+    .                               \
+    1 2 0 swap -                    \
+          /dev/sda4#/dev/sdb4       \
     .                               
 d-i     mdadm/boot_degraded boolean false
 d-i     partman-md/confirm boolean true
