@@ -345,10 +345,7 @@ PXEブートサーバーについては [doc/Network/pxe/ubuntu-pxe.md at master
 **インストール中にPreseedのログを確認したいときは `Alt+F4` の仮想コンソールで見ることができる。便利。**  
 Preseedに関連するコマンドもここで出力されるのでこれを見ながら設定していくといい。  
 というかこれ以外まともなドキュメントが存在しない。  
-Kickstartよりひどい。
-
-`/var/log/installer/syslog` 死ぬほど長い。
-
+Kickstartよりひどい。  
 たぶん `/var/log/installer/syslog`  に出力されるのが Preseed に関するログ。
 
 ## 参考サイト
