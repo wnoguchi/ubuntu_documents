@@ -337,126 +337,13 @@ label hd
 192.168.1.10がPXEブートサーバー兼TFTPサーバーとなっている。  
 pxelinuxでブート時にTFTPサーバーからpreseedファイルを取得してきている。  
 パスに注意。  
-PXEブートサーバーについては
+PXEブートサーバーについては [doc/Network/pxe/ubuntu-pxe.md at master · wnoguchi/doc](https://github.com/wnoguchi/doc/blob/master/Network/pxe/ubuntu-pxe.md) を参照。
 
-[doc/Network/pxe/ubuntu-pxe.md at master · wnoguchi/doc](https://github.com/wnoguchi/doc/blob/master/Network/pxe/ubuntu-pxe.md)
+### Basic
 
-を参照。
+設定については [PXE boot Basic Preseeding](preseed.cfg/pxe/basic/README.md) を参照。
 
-### pxelinuxのconfig
-
-```
-# /var/lib/tftpboot/ubuntu-installer/amd64/pxelinux.cfg/default
-default install
-label install
-  menu label ^Install Ubuntu Server
-  kernel ubuntu-installer/amd64/linux
-  append DEBCONF_DEBUG=5 auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth0 hostname=localhost domain=localdomain url=http://192.168.1.31/preseed.cfg initrd=ubuntu-installer/amd64/initrd.gz vga=normal quiet --
-```
-
-### preseed.cfg
-
-~~うごかない、うごかない・・・。~~  
-動かないというのは語弊がある。  
-RX100S7のPXEとIPMI管理ポート、PXE+DHCPサーバーのセグメントと、eth0の通常のNICには  
-NTTのブロードバンドルーターのDHCPの下に置いてDHCP2本立てにしたらパーティショニングの警告画面のところまで進んだ。  
-DHCPは一本に絞りたいけど、同じにするとなぜかPXEクライアントがDHCP解決した後のLinuxブートシーケンスでDHCP解決に失敗する。  
-どげんかせんといかん。
-
-```
-# /var/lib/tftpboot/preseed.cfg
-#===========================================================================================
-# BOOT SEQUENCE CONFIGURATIONS START
-# ENDの設定のところまではDVDメディア、USBメディアに同梱している場合にのみ有効になる設定。
-# PXEブートの場合はこのセクションは無視される。
-# この場合はpxelinuxのconfigのappendに直接記述する必要がある。
-#===========================================================================================
-d-i debian-installer/language string en
-d-i debian-installer/country string US
-d-i debian-installer/locale string en_US.UTF-8
-d-i localechooser/supported-locales en_US.UTF-8d-i console-setup/ask_detect boolean false
-d-i console-setup/layoutcode string us
-d-i console-setup/charmap select UTF-8
-d-i keyboard-configuration/layoutcode string us
-
-d-i netcfg/choose_interface select eth0 
-d-i netcfg/disable_dhcp boolean true 
-d-i netcfg/get_nameservers string 8.8.8.8 
-d-i netcfg/get_ipaddress string 192.168.1.50 
-d-i netcfg/get_netmask string 255.255.255.0 
-d-i netcfg/get_gateway string 192.168.1.1 
-d-i netcfg/confirm_static boolean true 
-d-i netcfg/get_hostname string openstack 
-d-i netcfg/get_domain string sv.pg1x.com 
-d-i netcfg/wireless_wep string 
-#===========================================================================================
-# BOOT SEQUENCE CONFIGURATIONS END
-#===========================================================================================
-
-d-i mirror/country string manual
-d-i mirror/http/hostname string archive.ubuntu.com
-d-i mirror/http/directory string /ubuntu
-d-i mirror/http/proxy string
-
-d-i clock-setup/utc boolean false 
-d-i time/zone string Japan 
-d-i clock-setup/ntp boolean false 
-
-#========================================================================
-# Destroy All RAID device settings
-d-i partman-md/device_remove_md boolean true
-# Destroy All LVM device settings
-d-i partman-lvm/device_remove_lvm boolean true
-
-d-i partman-auto/disk string /dev/sda
-d-i partman-auto/method string regular
-d-i partman-auto/expert_recipe string root :: 19000 50 50000 ext4 \
-        $primary{ } $bootable{ } method{ format } \
-        format{ } use_filesystem{ } filesystem{ ext4 } \
-        mountpoint{ / } \
-    . \
-    16384 90 32768 linux-swap \
-        $primary{ } method{ swap } format{ } \
-    . \
-    100 100 10000000000 ext3 \
-        $primary{ } method{ format } format{ } \
-        use_filesystem{ } filesystem{ ext4 } \
-        mountpoint{ /srv/extra } \
-    .
-d-i partman-auto/choose_recipe select root
-d-i partman-partitioning/confirm_write_new_label boolean true
-d-i partman/choose_partition select Finish partitioning and write changes to disk
-d-i partman/confirm boolean true
-#========================================================================
-
-d-i base-installer/install-recommends boolean true 
-d-i base-installer/kernel/image string linux-generic 
-
-d-i passwd/root-login boolean true 
-d-i passwd/make-user boolean false 
-d-i passwd/root-password password password 
-d-i passwd/root-password-again password password 
-d-i passwd/user-fullname string testuser 
-d-i passwd/username string testuser 
-d-i passwd/user-password password insecure 
-d-i passwd/user-password-again password insecure 
-d-i user-setup/allow-password-weak boolean true 
-d-i user-setup/encrypt-home boolean false 
-d-i apt-setup/use_mirror boolean false 
-d-i debian-installer/allow_unauthenticated boolean true 
-tasksel tasksel/first multiselect none 
-d-i pkgsel/include string openssh-server build-essential
-d-i pkgsel/upgrade select none 
-d-i pkgsel/update-policy select none 
-popularity-contest popularity-contest/participate boolean false 
-d-i pkgsel/updatedb boolean true 
-d-i grub-installer/grub2_instead_of_grub_legacy boolean false 
-d-i grub-installer/only_debian boolean true 
-d-i grub-installer/bootdev string (hd0,0) 
-d-i finish-install/reboot_in_progress note
-```
-
-#### partman
+### partmanの学習
 
 [Notes on using expert_recipe in Debian/Ubuntu Preseed Files | Semi-Empirical Shenanigans](http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/) がいい感じ。
 
