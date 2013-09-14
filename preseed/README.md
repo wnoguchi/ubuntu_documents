@@ -303,7 +303,7 @@ sudo vi dvdr/isolinux/txt.cfg
 メニューが表示されてうるさい。
 
 ```
-isolinux.cfg
+# dvdr/isolinux/isolinux.cfg
 
 # D-I config version 2.0
 include menu.cfg

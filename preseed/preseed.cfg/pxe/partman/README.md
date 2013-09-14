@@ -56,6 +56,8 @@ d-i partman-lvm/device_remove_lvm boolean true
 
 ## ソフトウェアRAID1 + LVMを構成する
 
+以下、まだうまくいってない。
+
 ```
 # Destroy All RAID device settings
 d-i partman-md/device_remove_md boolean true
@@ -116,6 +118,21 @@ d-i     partman/choose_partition select Finish partitioning and write changes to
 d-i     partman/confirm boolean true
 d-i     partman-md/confirm_nooverwrite  boolean true
 d-i     partman/confirm_nooverwrite boolean true
+```
+
+PXEブート方式でネットワークインストールしてるから死ぬほど遅い。。。  
+partmanの実験に支障が出るのでベーシックなパッケージはDVDに焼いてpreseed.cfgだけHTTP/TFTPで取得するようにする。
+
+```
+# isolinux/isolinux.cfg
+default install
+label install
+  menu label ^Install Ubuntu Server
+  kernel /install/vmlinuz
+  append  auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false url=http://192.168.1.101/preseed.cfg vga=normal initrd=/install/initrd.gz quiet --
+label hd
+  menu label ^Boot from first hard disk
+  localboot 0x80
 ```
 
 ## 参考サイト
