@@ -183,26 +183,115 @@ apt-getするとjpのミラーが選択されていることを確認する。
 
 それよりpartmanの結果が見たい。
 
+#### マウント状況
+
 ```
 root@openstack:~# df -h
 Filesystem                       Size  Used Avail Use% Mounted on
-/dev/mapper/volume--group1-root   46G  910M   43G   3% /
+/dev/mapper/volume--group1-root   46G  923M   43G   3% /
 none                             4.0K     0  4.0K   0% /sys/fs/cgroup
-udev                            1000M  4.0K 1000M   1% /dev
-tmpfs                            202M  308K  202M   1% /run
+udev                             8.9G  4.0K  8.9G   1% /dev
+tmpfs                            1.8G  296K  1.8G   1% /run
 none                             5.0M     0  5.0M   0% /run/lock
-none                            1009M     0 1009M   0% /run/shm
+none                             8.9G     0  8.9G   0% /run/shm
 none                             100M     0  100M   0% /run/user
 /dev/md0                         915M   30M  837M   4% /boot
 ```
+
+#### RAID状況
 
 ちゃんとRAIDアレイできてる。
 
 ```
 root@openstack:~# ls -l /dev/md*
-brw-rw---- 1 root disk 9, 0 Sep 15 15:37 /dev/md0
-brw-rw---- 1 root disk 9, 1 Sep 15 15:37 /dev/md1
+brw-rw---- 1 root disk 9, 0 Sep 16 01:03 /dev/md0
+brw-rw---- 1 root disk 9, 1 Sep 16 01:03 /dev/md1
 
+```
+
+#### LVM
+
+```
+root@openstack:~# vgdisplay
+  --- Volume group ---
+  VG Name               volume-group1
+  System ID
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  3
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                2
+  Open LV               2
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               1.82 TiB
+  PE Size               4.00 MiB
+  Total PE              476655
+  Alloc PE / Size       476655 / 1.82 TiB
+  Free  PE / Size       0 / 0
+  VG UUID               wryrWz-bf7C-Jwj5-dLew-PUjy-Fej4-jtUiO3
+
+root@openstack:~# lvdisplay
+  --- Logical volume ---
+  LV Path                /dev/volume-group1/root
+  LV Name                root
+  VG Name                volume-group1
+  LV UUID                1QK02w-XJWj-2d2V-3CPl-ermS-6SrY-MTcUmD
+  LV Write Access        read/write
+  LV Creation host, time openstack, 2013-09-16 09:51:10 +0900
+  LV Status              available
+  # open                 1
+  LV Size                46.56 GiB
+  Current LE             11920
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           252:0
+
+  --- Logical volume ---
+  LV Path                /dev/volume-group1/swap
+  LV Name                swap
+  VG Name                volume-group1
+  LV UUID                4Ws0uH-ai1G-BJKV-F83W-qwiC-1P82-pgW8sG
+  LV Write Access        read/write
+  LV Creation host, time openstack, 2013-09-16 09:51:10 +0900
+  LV Status              available
+  # open                 2
+  LV Size                1.77 TiB
+  Current LE             464735
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           252:1
+
+```
+
+#### fdiskの結果
+
+```
+root@openstack:~# fdisk /dev/sda
+
+The device presents a logical sector size that is smaller than
+the physical sector size. Aligning to a physical sector (or optimal
+I/O) size boundary is recommended, or performance may be impacted.
+
+Command (m for help): p
+
+Disk /dev/sda: 2000.4 GB, 2000398934016 bytes
+255 heads, 63 sectors/track, 243201 cylinders, total 3907029168 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disk identifier: 0x0003731a
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048     2000895      999424   fd  Linux raid autodetect
+/dev/sda2         2000896  3907028991  1952514048   fd  Linux raid autodetect
 ```
 
 ## 参考サイト
