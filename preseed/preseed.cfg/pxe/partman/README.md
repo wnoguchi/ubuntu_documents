@@ -135,6 +135,9 @@ label hd
   localboot 0x80
 ```
 
+インストールはできたけど起動しない。。。  
+ブートローダーのインストール周りがいけないのかな。
+
 ## 参考サイト
 
 - [Notes on using expert_recipe in Debian/Ubuntu Preseed Files | Semi-Empirical Shenanigans](http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/)
