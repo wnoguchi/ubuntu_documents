@@ -339,6 +339,80 @@ pxelinuxでブート時にTFTPサーバーからpreseedファイルを取得し�
 パスに注意。  
 PXEブートサーバーについては [doc/Network/pxe/ubuntu-pxe.md at master · wnoguchi/doc](https://github.com/wnoguchi/doc/blob/master/Network/pxe/ubuntu-pxe.md) を参照。
 
+## トラブルシューティング
+
+### 静的IPにしたいのにDHCP解決しちゃう！助けて！
+
+以下のような `prescript.sh` を用意する。
+
+```
+#!/bin/sh
+killall.sh; netcfg
+```
+
+```
+#===========================================================================================
+# BOOT SEQUENCE CONFIGURATIONS START
+# ENDの設定のところまではDVDメディア、USBメディアに同梱している場合にのみ有効になる設定。
+# PXEブートの場合はこのセクションは無視される。
+# この場合はpxelinuxのconfigのappendに直接記述する必要がある。
+#===========================================================================================
+d-i debian-installer/language string en
+d-i debian-installer/country string US
+d-i debian-installer/locale string en_US.UTF-8
+d-i localechooser/supported-locales en_US.UTF-8
+d-i console-setup/ask_detect boolean false
+d-i console-setup/layoutcode string us
+d-i console-setup/charmap select UTF-8
+
+# キーボードレイアウトの特性の設定（日本語キーボード）
+d-i keyboard-configuration/layoutcode string jp
+d-i keyboard-configuration/modelcode jp106
+
+#===========================================================================================
+# ネットワークまわりの設定
+#-------------------------------------------------------------------------------------------
+# 静的IP
+#-------------------------------------------------------------------------------------------
+# preseed.cfgを外から持ってこようとするとどうしてもいったんDHCP解決しないといけない。
+# そして以下の netcfg 項目は一回目は無視されるので d-i preseed/run のところで
+# ネットワーク設定をリセットするハックが必要になる。
+# そうすると静的IPとして設定を直してくれるようになる。
+#
+# 詳しくは以下:
+# - https://help.ubuntu.com/lts/installation-guide/i386/preseed-contents.html
+# - http://debian.2.n7.nabble.com/Bug-688273-Preseed-netcfg-use-autoconfig-and-netcfg-disable-dhcp-doesn-t-work-td1910023.html
+#
+# 以下の2項目を設定しないと静的IPとして処理されないので重要
+#d-i netcfg/use_autoconfig boolean false 
+#d-i netcfg/disable_autoconfig boolean true 
+#
+#d-i netcfg/choose_interface select eth0 
+#d-i netcfg/disable_dhcp boolean true 
+#d-i netcfg/get_nameservers string 8.8.8.8 
+#d-i netcfg/get_ipaddress string 192.168.1.50 
+#d-i netcfg/get_netmask string 255.255.255.0 
+#d-i netcfg/get_gateway string 192.168.1.1 
+#d-i netcfg/confirm_static boolean true 
+#d-i netcfg/get_hostname string openstack 
+#d-i netcfg/get_domain string sv.pg1x.com 
+#d-i netcfg/wireless_wep string 
+#-------------------------------------------------------------------------------------------
+# DHCPのとき
+#-------------------------------------------------------------------------------------------
+d-i netcfg/choose_interface select eth0 
+d-i netcfg/disable_autoconfig boolean false
+d-i netcfg/get_hostname string openstack 
+d-i netcfg/get_domain string sv.pg1x.com 
+d-i netcfg/wireless_wep string 
+
+# いったんリセット
+d-i preseed/run string http://gist.github.com/wnoguchi/7e6fa3b7efb3115eb1df/raw/prescript.sh
+#===========================================================================================
+# BOOT SEQUENCE CONFIGURATIONS END
+#===========================================================================================
+```
+
 ## デバッグに関して
 
 カーネルパラメータに `DEBCONF_DEBUG=5` を指定するとログ出力されるので便利。  
