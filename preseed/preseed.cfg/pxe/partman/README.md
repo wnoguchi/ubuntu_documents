@@ -135,8 +135,37 @@ label hd
   localboot 0x80
 ```
 
-インストールはできたけど起動しない。。。  
-ブートローダーのインストール周りがいけないのかな。
+~~インストールはできたけど起動しない。。。  
+ブートローダーのインストール周りがいけないのかな。~~
+
+以下のようにGRUBの部分を設定してみる。
+
+```
+d-i grub-installer/grub2_instead_of_grub_legacy boolean true 
+d-i grub-installer/only_debian boolean true 
+d-i grub-installer/bootdev string /dev/sda /dev/sdb
+```
+
+ブートするようになってうまく動くようになったと思った。  
+ところがぎっちょん。  
+12.04をインストールしたはずなのに13.04と認識している。
+
+![](img/2013-09-15_22h15_17.png)
+
+`sudo apt-get -y update` してみた。
+
+![](img/2013-09-15_22h16_27.png)
+
+エラーログをApacheインストールして取得しようとしたらエラーになる。
+
+```
+E: Unable to correct problems, you have held broken packages
+```
+
+![](img/2013-09-15_22h17_06.png)
+
+パッケージリポジトリの選択をしくってる気がする。  
+RAIDの設定周りもなんかおかしい感じがするのでVirtualBoxで適宜スクリーンショットを取りながら進めよう。
 
 ## 参考サイト
 
