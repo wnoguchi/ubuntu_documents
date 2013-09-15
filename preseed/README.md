@@ -384,27 +384,27 @@ d-i keyboard-configuration/modelcode jp106
 # - http://debian.2.n7.nabble.com/Bug-688273-Preseed-netcfg-use-autoconfig-and-netcfg-disable-dhcp-doesn-t-work-td1910023.html
 #
 # 以下の2項目を設定しないと静的IPとして処理されないので重要
-#d-i netcfg/use_autoconfig boolean false 
-#d-i netcfg/disable_autoconfig boolean true 
-#
-#d-i netcfg/choose_interface select eth0 
-#d-i netcfg/disable_dhcp boolean true 
-#d-i netcfg/get_nameservers string 8.8.8.8 
-#d-i netcfg/get_ipaddress string 192.168.1.50 
-#d-i netcfg/get_netmask string 255.255.255.0 
-#d-i netcfg/get_gateway string 192.168.1.1 
-#d-i netcfg/confirm_static boolean true 
-#d-i netcfg/get_hostname string openstack 
-#d-i netcfg/get_domain string sv.pg1x.com 
-#d-i netcfg/wireless_wep string 
-#-------------------------------------------------------------------------------------------
-# DHCPのとき
-#-------------------------------------------------------------------------------------------
+d-i netcfg/use_autoconfig boolean false 
+d-i netcfg/disable_autoconfig boolean true 
+
 d-i netcfg/choose_interface select eth0 
-d-i netcfg/disable_autoconfig boolean false
+d-i netcfg/disable_dhcp boolean true 
+d-i netcfg/get_nameservers string 8.8.8.8 
+d-i netcfg/get_ipaddress string 192.168.1.50 
+d-i netcfg/get_netmask string 255.255.255.0 
+d-i netcfg/get_gateway string 192.168.1.1 
+d-i netcfg/confirm_static boolean true 
 d-i netcfg/get_hostname string openstack 
 d-i netcfg/get_domain string sv.pg1x.com 
 d-i netcfg/wireless_wep string 
+#-------------------------------------------------------------------------------------------
+# DHCPのとき
+#-------------------------------------------------------------------------------------------
+#d-i netcfg/choose_interface select eth0 
+#d-i netcfg/disable_autoconfig boolean false
+#d-i netcfg/get_hostname string openstack 
+#d-i netcfg/get_domain string sv.pg1x.com 
+#d-i netcfg/wireless_wep string 
 
 # いったんリセット
 d-i preseed/run string http://gist.github.com/wnoguchi/7e6fa3b7efb3115eb1df/raw/prescript.sh

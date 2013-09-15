@@ -174,6 +174,11 @@ RAIDの設定周りもなんかおかしい感じがするのでVirtualBoxで適
 d-i apt-setup/use_mirror boolean true 
 ```
 
+apt-getするとjpのミラーが選択されていることを確認する。  
+以下のようになるのが正しい。
+
+![](img/2013-09-16_00h36_02.png)
+
 ## 参考サイト
 
 - [Notes on using expert_recipe in Debian/Ubuntu Preseed Files | Semi-Empirical Shenanigans](http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/)
