@@ -167,6 +167,13 @@ E: Unable to correct problems, you have held broken packages
 パッケージリポジトリの選択をしくってる気がする。  
 RAIDの設定周りもなんかおかしい感じがするのでVirtualBoxで適宜スクリーンショットを取りながら進めよう。
 
+以下の設定をfalseからtrueにしたらうまくいった。  
+本家がぶっ壊れてる？
+
+```
+d-i apt-setup/use_mirror boolean true 
+```
+
 ## 参考サイト
 
 - [Notes on using expert_recipe in Debian/Ubuntu Preseed Files | Semi-Empirical Shenanigans](http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/)

@@ -348,6 +348,10 @@ Preseedに関連するコマンドもここで出力されるのでこれを見�
 Kickstartよりひどい。  
 たぶん `/var/log/installer/syslog`  に出力されるのが Preseed に関するログ。
 
+### preseed.cfgがぶっ壊れている時に表示される画面
+
+![](img/2013-09-15_23h49_03.png)
+
 ## 参考サイト
 
 - [Ubuntu Serverの全自動インストール環境作成 - kinneko@転職先募集中の日記](http://d.hatena.ne.jp/kinneko/20130203/p1)
@@ -361,3 +365,4 @@ Kickstartよりひどい。
 - [Contents of the preconfiguration file (for precise)](https://help.ubuntu.com/lts/installation-guide/i386/preseed-contents.html#preseed-bootloader)
 - [GPT対応のpreseedの書き方 — ペンギンと愉快な機械の日々](http://d.palmtb.net/2012/12/14/writing_preseed_for_gpt.html)
 - [Notes on using expert_recipe in Debian/Ubuntu Preseed Files | Semi-Empirical Shenanigans](http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/)
+- [B.5. 高度なオプション](http://www.debian.org/releases/stable/s390x/apbs05.html.ja)
