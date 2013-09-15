@@ -179,6 +179,32 @@ apt-getするとjpのミラーが選択されていることを確認する。
 
 ![](img/2013-09-16_00h36_02.png)
 
+### partman結果
+
+それよりpartmanの結果が見たい。
+
+```
+root@openstack:~# df -h
+Filesystem                       Size  Used Avail Use% Mounted on
+/dev/mapper/volume--group1-root   46G  910M   43G   3% /
+none                             4.0K     0  4.0K   0% /sys/fs/cgroup
+udev                            1000M  4.0K 1000M   1% /dev
+tmpfs                            202M  308K  202M   1% /run
+none                             5.0M     0  5.0M   0% /run/lock
+none                            1009M     0 1009M   0% /run/shm
+none                             100M     0  100M   0% /run/user
+/dev/md0                         915M   30M  837M   4% /boot
+```
+
+ちゃんとRAIDアレイできてる。
+
+```
+root@openstack:~# ls -l /dev/md*
+brw-rw---- 1 root disk 9, 0 Sep 15 15:37 /dev/md0
+brw-rw---- 1 root disk 9, 1 Sep 15 15:37 /dev/md1
+
+```
+
 ## 参考サイト
 
 - [Notes on using expert_recipe in Debian/Ubuntu Preseed Files | Semi-Empirical Shenanigans](http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/)
