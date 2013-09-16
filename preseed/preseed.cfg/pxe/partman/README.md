@@ -704,7 +704,19 @@ none                              100M     0  100M   0% /run/user
 
 #### RAID状況
 
-言わずもがななので省略。
+言わずもがななので省略。  
+mdstatの状況だけ載せてみる。
+
+```
+root@stack01:~# cat /proc/mdstat 
+Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10] 
+md0 : active raid1 sda1[0] sdb1[1]
+      998848 blocks super 1.2 [2/2] [UU]
+      
+md1 : active raid1 sda2[0] sdb2[1]
+      1952382784 blocks super 1.2 [2/2] [UU]
+      [===>.................]  resync = 16.3% (319170624/1952382784) finish=200.3min speed=135890K/sec
+```
 
 #### LVM
 
