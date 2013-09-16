@@ -692,10 +692,10 @@ d-i finish-install/reboot_in_progress note
 ```
 root@openstack:~# df -h
 Filesystem                        Size  Used Avail Use% Mounted on
-/dev/mapper/volume--group00-root   75G  909M   71G   2% /
+/dev/mapper/volume--group00-root   94G  919M   89G   2% /
 none                              4.0K     0  4.0K   0% /sys/fs/cgroup
 udev                              8.9G  4.0K  8.9G   1% /dev
-tmpfs                             1.8G  292K  1.8G   1% /run
+tmpfs                             1.8G  280K  1.8G   1% /run
 none                              5.0M     0  5.0M   0% /run/lock
 none                              8.9G     0  8.9G   0% /run/shm
 none                              100M     0  100M   0% /run/user
@@ -727,22 +727,22 @@ root@openstack:~# vgdisplay
   VG Size               1.82 TiB
   PE Size               4.00 MiB
   Total PE              476655
-  Alloc PE / Size       27343 / 106.81 GiB
-  Free  PE / Size       449312 / 1.71 TiB
-  VG UUID               fa6UjU-Mfz2-wR3u-YUk3-WLM4-K66t-XzZZqJ
+  Alloc PE / Size       32226 / 125.88 GiB
+  Free  PE / Size       444429 / 1.70 TiB
+  VG UUID               t1MJGU-Dr00-RZ5k-4dEx-lcdE-lyve-x4ZjpN
 
 root@openstack:~# lvdisplay
   --- Logical volume ---
   LV Path                /dev/volume-group00/root
   LV Name                root
   VG Name                volume-group00
-  LV UUID                CNwBNY-9GgR-0JSH-GNEh-D2LD-0sRw-z5Hdkr
+  LV UUID                PPK3OT-mc5m-CrZF-EldB-42qL-5nB6-gxITG3
   LV Write Access        read/write
-  LV Creation host, time openstack, 2013-09-16 20:39:44 +0900
+  LV Creation host, time openstack, 2013-09-16 23:13:51 +0900
   LV Status              available
   # open                 1
-  LV Size                76.29 GiB
-  Current LE             19531
+  LV Size                95.37 GiB
+  Current LE             24414
   Segments               1
   Allocation             inherit
   Read ahead sectors     auto
@@ -753,9 +753,9 @@ root@openstack:~# lvdisplay
   LV Path                /dev/volume-group00/swap
   LV Name                swap
   VG Name                volume-group00
-  LV UUID                KxYvEO-Ug0k-hFFE-9xVl-R3j3-xlb3-sCG7rC
+  LV UUID                1ArrLL-1E9D-kZw7-3aHn-m2XJ-JY8Q-pehDnk
   LV Write Access        read/write
-  LV Creation host, time openstack, 2013-09-16 20:39:44 +0900
+  LV Creation host, time openstack, 2013-09-16 23:13:51 +0900
   LV Status              available
   # open                 2
   LV Size                30.52 GiB
