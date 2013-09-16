@@ -3,6 +3,12 @@
 刺し身タンポポ作業の自動化。  
 CentOSならKickstart使うことになるけど、Ubuntuの場合はPreseedingというツールを使うらしい。
 
+現状の僕のやりたい設定としては現在確認している限りでは
+
+https://raw.github.com/wnoguchi/ubuntu_documents/master/preseed/preseed.cfg/pxe/partman/preseed-raid-lvm.cfg
+
+の `preseed.cfg` が一番正しい。
+
 ## 環境
 
 - 母艦: Ubuntu 13.04 Desktop
