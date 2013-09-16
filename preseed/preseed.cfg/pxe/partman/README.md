@@ -484,6 +484,99 @@ Disk identifier: 0x0003731a
 /dev/sda2         2000896  3907028991  1952514048   fd  Linux raid autodetect
 ```
 
+### レシピ2
+
+- HDD: 2TB x 2
+
+#### マウント状況
+
+```
+root@openstack:~# df -h
+Filesystem                        Size  Used Avail Use% Mounted on
+/dev/mapper/volume--group00-root   75G  909M   71G   2% /
+none                              4.0K     0  4.0K   0% /sys/fs/cgroup
+udev                              8.9G  4.0K  8.9G   1% /dev
+tmpfs                             1.8G  292K  1.8G   1% /run
+none                              5.0M     0  5.0M   0% /run/lock
+none                              8.9G     0  8.9G   0% /run/shm
+none                              100M     0  100M   0% /run/user
+/dev/md0                          945M   31M  865M   4% /boot
+```
+
+#### RAID状況
+
+言わずもがななので省略。
+
+#### LVM
+
+```
+root@openstack:~# vgdisplay
+  --- Volume group ---
+  VG Name               volume-group00
+  System ID
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  3
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                2
+  Open LV               2
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               1.82 TiB
+  PE Size               4.00 MiB
+  Total PE              476655
+  Alloc PE / Size       27343 / 106.81 GiB
+  Free  PE / Size       449312 / 1.71 TiB
+  VG UUID               fa6UjU-Mfz2-wR3u-YUk3-WLM4-K66t-XzZZqJ
+
+root@openstack:~# lvdisplay
+  --- Logical volume ---
+  LV Path                /dev/volume-group00/root
+  LV Name                root
+  VG Name                volume-group00
+  LV UUID                CNwBNY-9GgR-0JSH-GNEh-D2LD-0sRw-z5Hdkr
+  LV Write Access        read/write
+  LV Creation host, time openstack, 2013-09-16 20:39:44 +0900
+  LV Status              available
+  # open                 1
+  LV Size                76.29 GiB
+  Current LE             19531
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           252:0
+
+  --- Logical volume ---
+  LV Path                /dev/volume-group00/swap
+  LV Name                swap
+  VG Name                volume-group00
+  LV UUID                KxYvEO-Ug0k-hFFE-9xVl-R3j3-xlb3-sCG7rC
+  LV Write Access        read/write
+  LV Creation host, time openstack, 2013-09-16 20:39:44 +0900
+  LV Status              available
+  # open                 2
+  LV Size                30.52 GiB
+  Current LE             7812
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           252:1
+
+```
+
+#### fdiskの結果
+
+ディスクの識別子以外同じなので省略。
+
+### レシピ3
+
+**coming soon.**
+
 ## 参考サイト
 
 - [Notes on using expert_recipe in Debian/Ubuntu Preseed Files | Semi-Empirical Shenanigans](http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/)
