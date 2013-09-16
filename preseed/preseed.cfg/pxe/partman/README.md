@@ -187,6 +187,188 @@ apt-getするとjpのミラーが選択されていることを確認する。
 
 ![](img/2013-09-16_00h36_02.png)
 
+とりあえず動いた設定は以下のようになった。
+
+```
+#===========================================================================================
+# BOOT SEQUENCE CONFIGURATIONS START
+# ENDの設定のところまではDVDメディア、USBメディアに同梱している場合にのみ有効になる設定。
+# PXEブートの場合はこのセクションは無視される。
+# この場合はpxelinuxのconfigのappendに直接記述する必要がある。
+#===========================================================================================
+d-i debian-installer/language string en
+d-i debian-installer/country string US
+d-i debian-installer/locale string en_US.UTF-8
+d-i localechooser/supported-locales en_US.UTF-8
+d-i console-setup/ask_detect boolean false
+d-i console-setup/layoutcode string us
+d-i console-setup/charmap select UTF-8
+
+# キーボードレイアウトの特性の設定（日本語キーボード）
+d-i keyboard-configuration/layoutcode string jp
+d-i keyboard-configuration/modelcode jp106
+
+#===========================================================================================
+# ネットワークまわりの設定
+#-------------------------------------------------------------------------------------------
+# 静的IP
+#-------------------------------------------------------------------------------------------
+# preseed.cfgを外から持ってこようとするとどうしてもいったんDHCP解決しないといけない。
+# そして以下の netcfg 項目は一回目は無視されるので d-i preseed/run のところで
+# ネットワーク設定をリセットするハックが必要になる。
+# そうすると静的IPとして設定を直してくれるようになる。
+#
+# 詳しくは以下:
+# - https://help.ubuntu.com/lts/installation-guide/i386/preseed-contents.html
+# - http://debian.2.n7.nabble.com/Bug-688273-Preseed-netcfg-use-autoconfig-and-netcfg-disable-dhcp-doesn-t-work-td1910023.html
+#
+# 以下の2項目を設定しないと静的IPとして処理されないので重要
+d-i netcfg/use_autoconfig boolean false 
+d-i netcfg/disable_autoconfig boolean true 
+
+d-i netcfg/choose_interface select eth0 
+d-i netcfg/disable_dhcp boolean true 
+d-i netcfg/get_nameservers string 8.8.8.8 
+d-i netcfg/get_ipaddress string 192.168.1.50 
+d-i netcfg/get_netmask string 255.255.255.0 
+d-i netcfg/get_gateway string 192.168.1.1 
+d-i netcfg/confirm_static boolean true 
+d-i netcfg/get_hostname string openstack 
+d-i netcfg/get_domain string sv.pg1x.com 
+d-i netcfg/wireless_wep string 
+#-------------------------------------------------------------------------------------------
+# DHCPのとき
+#-------------------------------------------------------------------------------------------
+#d-i netcfg/choose_interface select eth0 
+#d-i netcfg/disable_autoconfig boolean false
+#d-i netcfg/get_hostname string openstack 
+#d-i netcfg/get_domain string sv.pg1x.com 
+#d-i netcfg/wireless_wep string 
+
+# いったんリセット
+d-i preseed/run string http://gist.github.com/wnoguchi/7e6fa3b7efb3115eb1df/raw/prescript.sh
+#===========================================================================================
+# BOOT SEQUENCE CONFIGURATIONS END
+#===========================================================================================
+
+# インストーラパッケージをダウンロードするミラーを選択する
+#d-i mirror/protocol http
+d-i mirror/country string manual
+d-i mirror/http/hostname string jp.archive.ubuntu.com
+d-i mirror/http/directory string /ubuntu/
+d-i mirror/http/proxy string
+
+# インストールするスイートを選択
+d-i mirror/suite precise
+
+d-i clock-setup/utc boolean false 
+d-i time/zone string Japan 
+d-i clock-setup/ntp boolean false 
+
+#===========================================================================================
+# PARTMAN PARTITIONING SECTION START
+#===========================================================================================
+# すべてのRAIDデバイス構成を破棄する
+d-i partman-md/device_remove_md boolean true
+# すべてのLVMデバイス構成を破棄する
+d-i partman-lvm/device_remove_lvm boolean true
+
+d-i partman/confirm_nooverwrite boolean true
+
+# RAIDアレイを構成するディスクを並べる
+d-i     partman-auto/disk string /dev/sda /dev/sdb
+
+# RAIDを構成する
+d-i     partman-auto/method string raid
+d-i     partman-md/confirm boolean true
+# 間違い？
+d-i     partman-lvm/confirm boolean true
+d-i     partman-auto-lvm/guided_size string max
+
+# レシピの選択
+d-i     partman-auto/choose_recipe select boot-root
+
+# ボリュームグループの名前を設定
+d-i     partman-auto-lvm/new_vg_name string volume-group1
+
+d-i     partman-auto/expert_recipe string        \
+           boot-root ::                          \
+             1024 30 1024 raid                   \
+                $lvmignore{ }                    \
+                $primary{ } $bootable{ } method{ raid }       \
+             .                                   \
+             1000 35 100000000 raid              \
+                $lvmignore{ }                    \
+                $primary{ } method{ raid }       \
+             .                                   \
+             50000 50 50000 ext4                 \
+                $defaultignore{ }                \
+                $lvmok{ }                        \
+                lv_name{ root }                  \
+                method{ format }                 \
+                format{ }                        \
+                use_filesystem{ }                \
+                filesystem{ ext4 }               \
+                mountpoint{ / }                  \
+             .                                   \
+             16384 60 32768 swap                 \
+                $defaultignore{ }                \
+                $lvmok{ }                        \
+                lv_name{ swap }                  \
+                method{ swap }                   \
+                format{ }                        \
+            .                                    
+d-i partman-auto-raid/recipe string \
+    1 2 0 ext2 /boot                \
+          /dev/sda1#/dev/sdb1       \
+    .                               \
+    1 2 0 lvm -                     \
+          /dev/sda2#/dev/sdb2       \
+    .                               
+d-i     mdadm/boot_degraded boolean false
+d-i     partman-md/confirm boolean true
+d-i     partman-partitioning/confirm_write_new_label boolean true
+d-i     partman/choose_partition select Finish partitioning and write changes to disk
+d-i     partman/confirm boolean true
+d-i     partman-md/confirm_nooverwrite  boolean true
+d-i     partman/confirm_nooverwrite boolean true
+#===========================================================================================
+# PARTMAN PARTITIONING SECTION END
+#===========================================================================================
+
+d-i base-installer/install-recommends boolean true 
+d-i base-installer/kernel/image string linux-generic 
+
+d-i passwd/root-login boolean true 
+d-i passwd/make-user boolean false 
+d-i passwd/root-password password password 
+d-i passwd/root-password-again password password 
+d-i passwd/user-fullname string testuser 
+d-i passwd/username string testuser 
+d-i passwd/user-password password insecure 
+d-i passwd/user-password-again password insecure 
+d-i user-setup/allow-password-weak boolean true 
+d-i user-setup/encrypt-home boolean false 
+
+d-i apt-setup/use_mirror boolean true 
+
+d-i debian-installer/allow_unauthenticated boolean true 
+tasksel tasksel/first multiselect none 
+d-i pkgsel/include string openssh-server build-essential
+d-i pkgsel/upgrade select none 
+d-i pkgsel/update-policy select none 
+popularity-contest popularity-contest/participate boolean false 
+d-i pkgsel/updatedb boolean true 
+
+# GRUBインストーラー
+d-i grub-installer/grub2_instead_of_grub_legacy boolean true 
+d-i grub-installer/only_debian boolean true 
+d-i grub-installer/bootdev string /dev/sda /dev/sdb
+
+# インストールが終了したらサーバー再起動
+d-i finish-install/reboot_in_progress note
+```
+
 ### partman結果
 
 それよりpartmanの結果が見たい。
