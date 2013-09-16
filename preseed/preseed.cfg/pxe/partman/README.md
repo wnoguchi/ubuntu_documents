@@ -575,6 +575,8 @@ root@openstack:~# lvdisplay
 
 ### レシピ3
 
+調子に乗ってOpenStack用のpreseedも記述してみた。
+
 **coming soon.**
 
 ## 参考サイト
