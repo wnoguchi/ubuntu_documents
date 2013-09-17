@@ -446,3 +446,10 @@ Kickstartよりひどい。
 - [GPT対応のpreseedの書き方 — ペンギンと愉快な機械の日々](http://d.palmtb.net/2012/12/14/writing_preseed_for_gpt.html)
 - [Notes on using expert_recipe in Debian/Ubuntu Preseed Files | Semi-Empirical Shenanigans](http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/)
 - [B.5. 高度なオプション](http://www.debian.org/releases/stable/s390x/apbs05.html.ja)
+
+### Ubuntu Official Installation Guide(AMD64)
+
+- [Installation Guide for Ubuntu 12.04](https://help.ubuntu.com/lts/installation-guide/)
+- [Ubuntu Installation Guide](https://help.ubuntu.com/lts/installation-guide/amd64/index.html)
+- [Appendix B. Automating the installation using preseeding](https://help.ubuntu.com/lts/installation-guide/amd64/appendix-preseed.html)
+- [Contents of the preconfiguration file (for precise)](https://help.ubuntu.com/lts/installation-guide/amd64/preseed-contents.html)
