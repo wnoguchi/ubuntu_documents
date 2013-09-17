@@ -453,3 +453,4 @@ Kickstartよりひどい。
 - [Ubuntu Installation Guide](https://help.ubuntu.com/lts/installation-guide/amd64/index.html)
 - [Appendix B. Automating the installation using preseeding](https://help.ubuntu.com/lts/installation-guide/amd64/appendix-preseed.html)
 - [Contents of the preconfiguration file (for precise)](https://help.ubuntu.com/lts/installation-guide/amd64/preseed-contents.html)
+- [Using preseeding](https://help.ubuntu.com/lts/installation-guide/amd64/preseed-using.html#preseed-bootparms)
