@@ -5,14 +5,15 @@ CentOSならKickstart使うことになるけど、Ubuntuの場合はPreseeding�
 
 現状の僕のやりたい設定としては現在確認している限りでは
 
-https://raw.github.com/wnoguchi/ubuntu_documents/master/preseed/preseed.cfg/pxe/partman/preseed-raid-lvm.cfg
+- https://raw.github.com/wnoguchi/ubuntu_documents/master/preseed/preseed.cfg/pxe/basic/preseed.cfg
+- https://raw.github.com/wnoguchi/ubuntu_documents/master/preseed/preseed.cfg/pxe/partman/preseed-raid-lvm.cfg
 
 の `preseed.cfg` が一番正しい。
 
 ## 環境
 
 - 母艦: Ubuntu 13.04 Desktop
-- ISO化するもの: Ubuntu Server 12.04 LTS
+- ISO化するもの: Ubuntu Server 12.04.3 LTS
 
 ## 必要なやつをインストール
 
@@ -29,10 +30,10 @@ cd /var/tmp/ubuntu1204/
 
 ## マウント
 
-isoイメージはループバックデバイスだから他に何かオプション指定しないといけない気がしたんだけど。
+isoイメージはループバックデバイスだから他に何かオプション指定しないといけない気がしたんだけど。。。
 
 ```
-sudo mount -t iso9660 /var/tmp/ubuntu-12.04.2-server-amd64.iso /var/tmp/ubuntu1204/dvd
+sudo mount -t iso9660 /var/tmp/ubuntu-12.04.3-server-amd64.iso /var/tmp/ubuntu1204/dvd
 ```
 
 ## isoイメージからファイルコピー
@@ -53,70 +54,199 @@ EFI/		    boot/	   dists/  install/   md5sum.txt  pool/
 README.diskdefines  cdromupgrade*  doc/    isolinux/  pics/	  preseed/
 ```
 
-`isolinux.cfg` を編集しましょうホイ。  
-でも中でいろいろincludeしてるのでたどって行かないと目的のものには辿りつけないので注意。
+`isolinux.cfg` から多重に include されているものを辿って行くと、 `dvdr/isolinux/txt.cfg` は以下のようになっていて、
 
 ```
-sudo vi isolinux/txt.cfg
-
+# dvdr/isolinux/txt.cfg
 default install
 label install
   menu label ^Install Ubuntu Server
   kernel /install/vmlinuz
   append  file=/cdrom/preseed/ubuntu-server.seed vga=788 initrd=/install/initrd.gz quiet --
-
-↓
-
-  append  DEBCONF_DEBUG=5 auto=true pkgsel/language-pack-patterns= pkgsel/install-language-support=false file=/cdrom/preseed/preseed.cfg vga=normal initrd=/install/initrd.gz quiet --
+label cloud
+  menu label ^Multiple server install with MAAS
+  kernel /install/vmlinuz
+  append   modules=maas-enlist-udeb vga=788 initrd=/install/initrd.gz quiet --
+label check
+  menu label ^Check disc for defects
+  kernel /install/vmlinuz
+  append   MENU=/bin/cdrom-checker-menu vga=788 initrd=/install/initrd.gz quiet --
+label memtest
+  menu label Test ^memory
+  kernel /install/mt86plus
+label hd
+  menu label ^Boot from first hard disk
+  localboot 0x80
 ```
 
+この中から
+
+```
+default install
+label install
+  menu label ^Install Ubuntu Server
+  kernel /install/vmlinuz
+  append  file=/cdrom/preseed/ubuntu-server.seed vga=788 initrd=/install/initrd.gz quiet --
+```
+
+のような内容を見つけることができます。  
+この内容の append の行を
+
+```
+  append  file=/cdrom/preseed/ubuntu-server.seed vga=788 initrd=/install/initrd.gz quiet --
+```
+
+以下のように書き換えます。
+
+```
+  append DEBCONF_DEBUG=5 auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth0 hostname=localhost domain=localdomain url=http://gist.github.com/wnoguchi/6578034/raw/preseed.cfg vga=normal initrd=/install/initrd.gz quiet --
+```
+
+次に `txt.cfg` ではなく `isolinux.cfg` を編集します。  
+ファイルの中身
+
+```
+# dvdr/isolinux/isolinux.cfg
+# D-I config version 2.0
+include menu.cfg
+default vesamenu.c32
+prompt 0
+timeout 0
+ui gfxboot bootlogo
+```
+
+を
+
+```
+# dvdr/isolinux/isolinux.cfg
+default install
+label install
+  menu label ^Install Ubuntu Server
+  kernel /install/vmlinuz
+  append DEBCONF_DEBUG=5 auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false interface=eth0 hostname=localhost domain=localdomain url=http://gist.github.com/wnoguchi/6578034/raw/preseed.cfg vga=normal initrd=/install/initrd.gz quiet --
+label hd
+  menu label ^Boot from first hard disk
+  localboot 0x80
+```
+
+に全置換します。  
 読み取り専用になってるので!を付加して強制的に書き込む。
 
-## 自動インストールを実現するためのpreseed.cfg ファイルの作成
+## 自動インストールを実現するための preseed.cfg ファイルの作成
 
 ```
-cd preseed
-```
-
-```
-vi preseed.cfg
-
-d-i debian-installer/locale string en_US 
-d-i localechooser/supported-locales en_US.UTF-8, ja_JP.UTF-8 
-d-i console-setup/ask_detect boolean false 
-d-i console-setup/layoutcode string us 8 
-d-i netcfg/choose_interface select auto 
+# dvdr/preseed/preseed.cfg
+#===========================================================================================
+# BOOT SEQUENCE CONFIGURATIONS START
+# ENDの設定のところまではDVDメディア、USBメディアに同梱している場合にのみ有効になる設定。
+# PXEブートの場合はこのセクションは無視される。
+# この場合はpxelinuxのconfigのappendに直接記述する必要がある。
+#===========================================================================================
+d-i debian-installer/language string en
+d-i debian-installer/country string US
+d-i debian-installer/locale string en_US.UTF-8
+d-i localechooser/supported-locales en_US.UTF-8
+d-i console-setup/ask_detect boolean false
+d-i console-setup/layoutcode string us
+d-i console-setup/charmap select UTF-8
+ 
+# キーボードレイアウトの特性の設定（日本語キーボード）
+d-i keyboard-configuration/layoutcode string jp
+d-i keyboard-configuration/modelcode jp106
+ 
+#===========================================================================================
+# ネットワークまわりの設定
+#-------------------------------------------------------------------------------------------
+# 静的IP
+#-------------------------------------------------------------------------------------------
+# preseed.cfgを外から持ってこようとするとどうしてもいったんDHCP解決しないといけない。
+# そして以下の netcfg 項目は一回目は無視されるので d-i preseed/run のところで
+# ネットワーク設定をリセットするハックが必要になる。
+# そうすると静的IPとして設定を直してくれるようになる。
+#
+# 詳しくは以下:
+# - https://help.ubuntu.com/lts/installation-guide/i386/preseed-contents.html
+# - http://debian.2.n7.nabble.com/Bug-688273-Preseed-netcfg-use-autoconfig-and-netcfg-disable-dhcp-doesn-t-work-td1910023.html
+#
+# 以下の2項目を設定しないと静的IPとして処理されないので重要
+d-i netcfg/use_autoconfig boolean false 
+d-i netcfg/disable_autoconfig boolean true 
+ 
 d-i netcfg/choose_interface select eth0 
 d-i netcfg/disable_dhcp boolean true 
 d-i netcfg/get_nameservers string 8.8.8.8 
-d-i netcfg/get_ipaddress string 192.168.1.50 
+d-i netcfg/get_ipaddress string 192.168.1.201 
 d-i netcfg/get_netmask string 255.255.255.0 
 d-i netcfg/get_gateway string 192.168.1.1 
 d-i netcfg/confirm_static boolean true 
-d-i netcfg/get_hostname string openstack 
-d-i netcfg/get_domain string sv.pg1x.com 
+d-i netcfg/get_hostname string stack01 
+d-i netcfg/get_domain string pg1x.com 
 d-i netcfg/wireless_wep string 
-d-i mirror/http/mirror select CC.archive.ubuntu.com
+#-------------------------------------------------------------------------------------------
+# DHCPのとき
+#-------------------------------------------------------------------------------------------
+#d-i netcfg/choose_interface select eth0 
+#d-i netcfg/disable_autoconfig boolean false
+#d-i netcfg/get_hostname string openstack 
+#d-i netcfg/get_domain string sv.pg1x.com 
+#d-i netcfg/wireless_wep string 
+ 
+# いったんリセット
+d-i preseed/run string http://gist.github.com/wnoguchi/6578034/raw/prescript.sh
+#===========================================================================================
+# BOOT SEQUENCE CONFIGURATIONS END
+#===========================================================================================
+ 
+# インストーラパッケージをダウンロードするミラーを選択する
+#d-i mirror/protocol http
+d-i mirror/country string manual
+d-i mirror/http/hostname string jp.archive.ubuntu.com
+d-i mirror/http/directory string /ubuntu/
+d-i mirror/http/proxy string
+ 
+# インストールするスイートを選択
+d-i mirror/suite precise
+ 
 d-i clock-setup/utc boolean false 
 d-i time/zone string Japan 
 d-i clock-setup/ntp boolean false 
-d-i partman-auto/init_automatically_partition select biggest_free 
+ 
+#===========================================================================================
+# PARTMAN PARTITIONING SECTION START
+#===========================================================================================
+# すべてのRAIDデバイス構成を破棄する
+d-i partman-md/device_remove_md boolean true
+# すべてのLVMデバイス構成を破棄する
+d-i partman-lvm/device_remove_lvm boolean true
+ 
+d-i partman/confirm_nooverwrite boolean true
+ 
 d-i partman-auto/disk string /dev/sda
-d-i partman-auto/method string regular 
-d-i partman-lvm/device_remove_lvm boolean true 
-d-i partman-auto/choose_recipe select atomic 
-d-i partman/default_filesystem string ext4 
-d-i partman-partitioning/confirm_write_new_label boolean true 
-d-i partman/choose_partition select finish 
-d-i partman/confirm boolean true 
-d-i partman/confirm_nooverwrite boolean true 
-d-i partman-partitioning/confirm_write_new_label boolean true 
-d-i partman/choose_partition select finish 
-d-i partman/confirm boolean true 
-d-i partman/confirm_nooverwrite boolean true 
-d-i partman/mount_style select traditional
+d-i partman-auto/method string regular
+d-i partman-auto/expert_recipe string root :: 19000 50 50000 ext4 \
+        $primary{ } $bootable{ } method{ format } \
+        format{ } use_filesystem{ } filesystem{ ext4 } \
+        mountpoint{ / } \
+    . \
+    16384 90 32768 linux-swap \
+        $primary{ } method{ swap } format{ } \
+    . \
+    100 100 10000000000 ext3 \
+        $primary{ } method{ format } format{ } \
+        use_filesystem{ } filesystem{ ext4 } \
+        mountpoint{ /srv/extra } \
+    .
+d-i partman-auto/choose_recipe select root
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select Finish partitioning and write changes to disk
+d-i partman/confirm boolean true
+#===========================================================================================
+# PARTMAN PARTITIONING SECTION END
+#===========================================================================================
+ 
 d-i base-installer/install-recommends boolean true 
 d-i base-installer/kernel/image string linux-generic 
+ 
 d-i passwd/root-login boolean true 
 d-i passwd/make-user boolean false 
 d-i passwd/root-password password password 
@@ -127,72 +257,25 @@ d-i passwd/user-password password insecure
 d-i passwd/user-password-again password insecure 
 d-i user-setup/allow-password-weak boolean true 
 d-i user-setup/encrypt-home boolean false 
-d-i apt-setup/use_mirror boolean false 
+ 
+d-i apt-setup/use_mirror boolean true 
+ 
 d-i debian-installer/allow_unauthenticated boolean true 
 tasksel tasksel/first multiselect none 
 d-i pkgsel/include string openssh-server build-essential
 d-i pkgsel/upgrade select none 
 d-i pkgsel/update-policy select none 
+d-i pkgsel/install-language-support boolean true 
 popularity-contest popularity-contest/participate boolean false 
 d-i pkgsel/updatedb boolean true 
-d-i grub-installer/grub2_instead_of_grub_legacy boolean false 
+ 
+# GRUBインストーラー
+d-i grub-installer/grub2_instead_of_grub_legacy boolean true 
 d-i grub-installer/only_debian boolean true 
-d-i grub-installer/bootdev string (hd0,0) 
+d-i grub-installer/bootdev string /dev/sda
+ 
+# インストールが終了したらサーバー再起動
 d-i finish-install/reboot_in_progress note
-```
-
-ちなみにサンプルで入ってるseedファイルは以下の様な感じになってた。
-
-```
-vi ubuntu-server-minimal.seed
-
-# Suggest LVM by default.
-d-i     partman-auto/init_automatically_partition       string some_device_lvm
-d-i     partman-auto/init_automatically_partition       seen false
-# Only install basic language packs. Let tasksel ask about tasks.
-d-i     pkgsel/language-pack-patterns   string
-# No language support packages.
-d-i     pkgsel/install-language-support boolean false
-# Only ask the UTC question if there are other operating systems installed.
-d-i     clock-setup/utc-auto    boolean true
-# Verbose output and no boot splash screen.
-d-i     debian-installer/quiet  boolean false
-d-i     debian-installer/splash boolean false
-# Install the debconf oem-config frontend (if in OEM mode).
-d-i     oem-config-udeb/frontend        string debconf
-# Wait for two seconds in grub
-d-i     grub-installer/timeout  string 2
-# Add the network and tasks oem-config steps by default.
-oem-config      oem-config/steps        multiselect language, timezone, keyboard, user, network, tasks
-d-i     base-installer/kernel/altmeta   string lts-quantal
-
-```
-
-```
-vi ubuntu-server.seed
-
-# Suggest LVM by default.
-d-i     partman-auto/init_automatically_partition       string some_device_lvm
-d-i     partman-auto/init_automatically_partition       seen false
-# Install the Ubuntu Server seed.
-tasksel tasksel/force-tasks     string server
-# Only install basic language packs. Let tasksel ask about tasks.
-d-i     pkgsel/language-pack-patterns   string
-# No language support packages.
-d-i     pkgsel/install-language-support boolean false
-# Only ask the UTC question if there are other operating systems installed.
-d-i     clock-setup/utc-auto    boolean true
-# Verbose output and no boot splash screen.
-d-i     debian-installer/quiet  boolean false
-d-i     debian-installer/splash boolean false
-# Install the debconf oem-config frontend (if in OEM mode).
-d-i     oem-config-udeb/frontend        string debconf
-# Wait for two seconds in grub
-d-i     grub-installer/timeout  string 2
-# Add the network and tasks oem-config steps by default.
-oem-config      oem-config/steps        multiselect language, timezone, keyboard, user, network, tasks
-d-i     base-installer/kernel/altmeta   string lts-quantal
-
 ```
 
 ## カスタムisoイメージを作成する
@@ -219,121 +302,6 @@ Max brk space used 369000
 ## 実行してみる
 
 いきなり物理マシンにやるのはけっこうしんどいので仮想マシンでやってみる。  
-なんか大体は自動化できてるけど、言語周りの選択が促される。なんで。
-
-参考サイトのcfgを参考に先頭を合わせてみた。
-
-```
-d-i debian-installer/language string en
-d-i debian-installer/country string US
-d-i debian-installer/locale string en_US.UTF-8
-d-i localechooser/supported-locales en_US.UTF-8d-i console-setup/ask_detect boolean false
-d-i console-setup/layoutcode string us
-d-i console-setup/charmap select UTF-8
-d-i keyboard-configuration/layoutcode string us
-d-i netcfg/choose_interface select auto 
-d-i netcfg/choose_interface select eth0 
-d-i netcfg/disable_dhcp boolean true 
-d-i netcfg/get_nameservers string 8.8.8.8 
-d-i netcfg/get_ipaddress string 192.168.1.50 
-d-i netcfg/get_netmask string 255.255.255.0 
-d-i netcfg/get_gateway string 192.168.1.1 
-d-i netcfg/confirm_static boolean true 
-d-i netcfg/get_hostname string openstack 
-d-i netcfg/get_domain string sv.pg1x.com 
-d-i netcfg/wireless_wep string 
-d-i mirror/http/mirror select CC.archive.ubuntu.com
-d-i clock-setup/utc boolean false 
-d-i time/zone string Japan 
-d-i clock-setup/ntp boolean false 
-d-i partman-auto/init_automatically_partition select biggest_free 
-d-i partman-auto/disk string /dev/sda
-d-i partman-auto/method string regular 
-d-i partman-lvm/device_remove_lvm boolean true 
-d-i partman-auto/choose_recipe select atomic 
-d-i partman/default_filesystem string ext4 
-d-i partman-partitioning/confirm_write_new_label boolean true 
-d-i partman/choose_partition select finish 
-d-i partman/confirm boolean true 
-d-i partman/confirm_nooverwrite boolean true 
-d-i partman-partitioning/confirm_write_new_label boolean true 
-d-i partman/choose_partition select finish 
-d-i partman/confirm boolean true 
-d-i partman/confirm_nooverwrite boolean true 
-d-i partman/mount_style select traditional
-d-i base-installer/install-recommends boolean true 
-d-i base-installer/kernel/image string linux-generic 
-d-i passwd/root-login boolean true 
-d-i passwd/make-user boolean false 
-d-i passwd/root-password password password 
-d-i passwd/root-password-again password password 
-d-i passwd/user-fullname string testuser 
-d-i passwd/username string testuser 
-d-i passwd/user-password password insecure 
-d-i passwd/user-password-again password insecure 
-d-i user-setup/allow-password-weak boolean true 
-d-i user-setup/encrypt-home boolean false 
-d-i apt-setup/use_mirror boolean false 
-d-i debian-installer/allow_unauthenticated boolean true 
-tasksel tasksel/first multiselect none 
-d-i pkgsel/include string openssh-server build-essential
-d-i pkgsel/upgrade select none 
-d-i pkgsel/update-policy select none 
-popularity-contest popularity-contest/participate boolean false 
-d-i pkgsel/updatedb boolean true 
-d-i grub-installer/grub2_instead_of_grub_legacy boolean false 
-d-i grub-installer/only_debian boolean true 
-d-i grub-installer/bootdev string (hd0,0) 
-d-i finish-install/reboot_in_progress note
-
-```
-
-今度はうまくいったっぽい。
-ただ立ち上げると一発目で言語を聞いてくるのがちょっといらない。
-それとなんかstaticにしてるのにDHCP効いてるし。。。
-
-locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false 
-
-```
-sudo vi dvdr/isolinux/txt.cfg
-
-  append  auto=true pkgsel/language-pack-patterns= pkgsel/install-language-support=false file=/cdrom/preseed/preseed.cfg vga=normal initrd=/install/initrd.gz quiet --
-
-↓
-
-  append  auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false file=/cdrom/preseed/preseed.cfg vga=normal initrd=/install/initrd.gz quiet --
-```
-
-変わらず。  
-参考サイト見たら `isolinux.cfg` を直接書き換えてるっぽい。  
-メニューが表示されてうるさい。
-
-```
-# dvdr/isolinux/isolinux.cfg
-
-# D-I config version 2.0
-include menu.cfg
-default vesamenu.c32
-prompt 0
-timeout 0
-ui gfxboot bootlogo
-```
-
-上の内容を抹消して以下の内容に全置換。
-
-```
-# dvdr/isolinux/isolinux.cfg
-
-default install
-label install
-  menu label ^Install Ubuntu Server
-  kernel /install/vmlinuz
-  append  DEBCONF_DEBUG=5 auto=true locale=en_US.UTF-8 console-setup/charmap=UTF-8 console-setup/layoutcode=us console-setup/ask_detect=false pkgsel/language-pack-patterns=pkgsel/install-language-support=false file=/cdrom/preseed/preseed.cfg vga=normal initrd=/install/initrd.gz quiet --
-label hd
-  menu label ^Boot from first hard disk
-  localboot 0x80
-```
-
 うまくいった。
 
 設定ファイルは [DVD self contains Basic Preseeding](preseed.cfg/dvd-self-contain/basic/README.md) を参照。
